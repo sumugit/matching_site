@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+.grid {
+    display: grid;
+    gap: 26px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 6%;
+    margin-bottom: 50px;
+}
+
+.item {
+    background: #fff0ff;
+    padding: 10px;
+}

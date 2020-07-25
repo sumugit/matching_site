@@ -1,0 +1,26 @@
+<!DOCTYPE heml>
+<html lang="ja">
+
+<head>
+    <meta http-equiv="content-type" charset="utf-8">
+    <title>会員登録</title>
+</head>
+
+<body>
+    <form method="POST" action="./enroll.php" enctype=multipart/form-data>
+        氏名<br>
+        <input type="text" name="name" required><br>
+        性別<br>
+        <input type="radio" name="sex" value="男性" required>男性<br>
+        <input type="radio" name="sex" value="女性">女性<br>
+        ニックネーム<br>
+        <input type="text" name="nickname" required><br>
+        メールアドレス<br>
+        <input type="text" name="email" required><br>
+        パスワード<br>
+        <input type="password" name="pass1" pattern="[0-9a-zA-Z]+$" required><br>
+        パスワードをもう一度入力してください。<br>
+        <input type="password" name="pass2" required><br>
+        <input type="submit" value="登録確認">
+    </form>
+</body>
