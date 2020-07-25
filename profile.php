@@ -60,38 +60,38 @@ if (isset($_SESSION['login']) == false) {
     <?php print $content[2]; ?>
     <h2>基本情報</h2>
     <table>
-        <?php print '<tr><td>ニックネーム</td><td>"' . $content[3] . '"</td></tr>'; ?>
-        <?php print '<tr><td>年齢</td><td>"' . $content[4] . '"</td></tr>'; ?>
-        <?php print '<tr><td>居住地</td><td>"' . $content[5] . '"</td></tr>'; ?>
-        <?php print '<tr><td>出身地</td><td>"' . $content[6] . '"</td></tr>'; ?>
-        <?php print '<tr><td>血液型</td><td>"' . $content[7] . '"</td></tr>'; ?>
-        <?php print '<tr><td>星座</td><td>"' . $content[8] . '"</td></tr>'; ?>
+        <?php print "<tr><td>ニックネーム</td><td>" . $content[3] . "</td></tr>"; ?>
+        <?php print "<tr><td>年齢</td><td>" . $content[4] . "</td></tr>"; ?>
+        <?php print "<tr><td>居住地</td><td>" . $content[5] . "</td></tr>"; ?>
+        <?php print "<tr><td>出身地</td><td>" . $content[6] . "</td></tr>"; ?>
+        <?php print "<tr><td>血液型</td><td>" . $content[7] . "</td></tr>"; ?>
+        <?php print "<tr><td>星座</td><td>" . $content[8] . "</td></tr>"; ?>
     </table>
     <h2>外見</h2>
     <table>
-        <?php print '<tr><td>身長</td><td>"' . $content[9] . '"</td></tr>'; ?>
-        <?php print '<tr><td>スタイル</td><td>"' . $content[10] . '"</td></tr>'; ?>
-        <?php print '<tr><td>ルックス</td><td>"' . $content[11] . '"</td></tr>'; ?>
+        <?php print "<tr><td>身長</td><td>" . $content[9] . "</td></tr>"; ?>
+        <?php print "<tr><td>スタイル</td><td>" . $content[10] . "</td></tr>"; ?>
+        <?php print "<tr><td>ルックス</td><td>" . $content[11] . "</td></tr>"; ?>
     </table>
     <h2>仕事・学歴</h2>
     <table>
-        <?php print '<tr><td>職業</td><td>"' . $content[12] . '"</td></tr>'; ?>
-        <?php print '<tr><td>年収</td><td>"' . $content[13] . '"</td></tr>'; ?>
+        <?php print "<tr><td>職業</td><td>" . $content[12] . "</td></tr>"; ?>
+        <?php print "<tr><td>年収</td><td>" . $content[13] . "</td></tr>"; ?>
     </table>
     <h2>ライフスタイル</h2>
     <table>
-        <?php print '<tr><td>交際ステータス</td><td>"' . $content[14] . '"</td></tr>'; ?>
-        <?php print '<tr><td>子供</td><td>"' . $content[15] . '"</td></tr>'; ?>
-        <?php print '<tr><td>たばこ</td><td>"' . $content[16] . '"</td></tr>'; ?>
-        <?php print '<tr><td>お酒</td><td>"' . $content[17] . '"</td></tr>'; ?>
-        <?php print '<tr><td>クルマ</td><td>"' . $content[18] . '"</td></tr>'; ?>
-        <?php print '<tr><td>同居人</td><td>"' . $content[19] . '"</td></tr>'; ?>
-        <?php print '<tr><td>兄弟関係</td><td>"' . $content[20] . '"</td></tr>'; ?>
+        <?php print "<tr><td>交際ステータス</td><td>" . $content[14] . "</td></tr>"; ?>
+        <?php print "<tr><td>子供</td><td>" . $content[15] . "</td></tr>"; ?>
+        <?php print "<tr><td>たばこ</td><td>" . $content[16] . "</td></tr>"; ?>
+        <?php print "<tr><td>お酒</td><td>" . $content[17] . "</td></tr>"; ?>
+        <?php print "<tr><td>クルマ</td><td>" . $content[18] . "</td></tr>"; ?>
+        <?php print "<tr><td>同居人</td><td>" . $content[19] . "</td></tr>"; ?>
+        <?php print "<tr><td>兄弟関係</td><td>" . $content[20] . "</td></tr>"; ?>
     </table>
     <h2>相手に求める条件</h2>
     <table>
-        <?php print '<tr><td>出会うまでの希望</td><td>"' . $content[21] . '"</td></tr>'; ?>
-        <?php print '<tr><td>初回デート費用</td><td>"' . $content[22] . '"</td></tr>'; ?>
+        <?php print "<tr><td>出会うまでの希望</td><td>" . $content[21] . "</td></tr>"; ?>
+        <?php print "<tr><td>初回デート費用</td><td>" . $content[22] . "</td></tr>"; ?>
     </table>
 </body>
 <footer>

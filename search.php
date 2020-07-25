@@ -28,6 +28,9 @@ if (isset($_SESSION['login']) == false) {
 </head>
 
 <body>
+    <header>
+        <a href="./detail.php">条件を指定する</a>
+    </header>
     <div class="wrapper grid">
         <?php
         //他の異性ユーザーの顔写真を一つずつ載せる

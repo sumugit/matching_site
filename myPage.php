@@ -34,6 +34,9 @@ if (isset($_SESSION['login']) == false) {
         <div class="item"><a href="./confirmFootPrint.php">足あと</a></div>
         <div class="item"><a href="./confirmGood.php">いいね</a></div>
         <div class="item"><a href="./confirmLove.php">タイプ</a></div>
+        <div class="item"><a href="./confirmMyGood.php">いいねした相手</a></div>
+        <div class="item"><a href="./confirmMyLove.php">タイプした相手</a></div>
+        <div class="item"><a href="./loginInfo.php">登録情報</a></div>
     </div>
 </body>
 <footer>
