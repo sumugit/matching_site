@@ -41,10 +41,14 @@ if (isset($_SESSION['login']) == false) {
             //登録ファイルを閉じる
             flock($fp, LOCK_UN);
             fclose($fp);
-        } else
+        } else{
             echo "ファイルが開けません。";
-    } else
+            exit();
+        }
+    } else{
         echo "ファイルがありません。";
+        exit();
+    }
     ?>
 
     <h1>あなたのプロフィール</h1>
