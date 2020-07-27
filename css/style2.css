@@ -2,6 +2,31 @@
 
 /*共通部分
 -----------------------------------------*/
+#login{
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 690px;
+}
+
+#container{
+	margin: 0 auto;
+	width: 600px;
+}
+
+#field {
+    margin-left: auto;
+    margin-right: auto;
+	width: 700px;
+	height: 900px;
+	/*padding: 10px;*/
+	background-color: #F9C1CF;
+	border: 1px solid grey;
+	border-radius: 10px;
+	overflow: scroll;
+	word-break: break-all;
+}
+
+
 html {
     font-size: 100%;
 }
@@ -17,19 +42,76 @@ img {
     max-width: 100%;
 }
 
+.logo {
+    width: 100%;
+}
+
 header{
-  z-index: 10;
+  margin-right: auto;
   height: 64px;
-  position: absolute;
-  top: 300px;
-  background-color: #333;
+  position: relative;
+  background-color: #F0F0F0;
   width: 100%;
   text-align: center;
   z-index: 2;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 }
+.main-nav ul {
+overflow:hidden;
+list-style:none;
+margin: 0 auto;
+z-index: 20;
+}
+ 
+ul li {
+  display: inline-block;
+  padding: 20px 10px 20px 10px;
+}
+
+.main-nav a {
+    color: #231F20;
+    text-transform: uppercase;
+}
+
+.btn4{
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  text-decoration: none;
+  display:inline-block;
+}
+ 
+.btn4::before {
+  content: '';
+  position: fixed;
+  bottom: -2px;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  background: #231F20;
+  display: block;
+  -webkit-transform-origin: right top;
+  -ms-transform-origin: right top;
+  transform-origin: right top;
+  -webkit-transform: scale(0, 1);
+  -ms-transform: scale(0, 1);
+  transform: scale(0, 1);
+  -webkit-transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+  transition: transform 0.4s cubic-bezier(1, 0, 0, 1)
+}
+.btn4:hover::before {
+  -webkit-transform-origin: left top;
+  -ms-transform-origin: left top;
+  transform-origin: left top;
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1)
+}
+ 
+
 /*HEADER
------------------------------------------
+-----------------------------------------*/
+
 
 /*SLIDER
 -----------------------------------------*/
@@ -38,13 +120,13 @@ header{
     max-width:660px;
     height:15px;
     background:#FAC7C1;
-    margin:80px auto;
+    margin:40px auto;
 }
 /*スライダー全体のコンテナー*/
 #stage {
-	position: relative;;
+	position: relative;
 	max-width: 660px;
-	margin: -80 auto;
+	margin: -40px auto;
 	background:#FAC7C1;
 	overflow: hidden;
 }
@@ -187,6 +269,8 @@ header{
 
 /*ボタン*/
 .button {
+    margin-left: 100px;
+    margin-top: 10px;
     font-size: 1.375rem;
     background: #0bd;
     color: #fff;
@@ -195,4 +279,102 @@ header{
 }
 .button:hover {
     background: #0090aa;
+}
+
+.btn,
+a.btn,
+button.btn {
+  margin-left: 120px;
+  font-weight: 700;
+  line-height: 1.0;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+.btn2,
+a.btn2,
+button.btn2 {
+  margin-left: 10px;
+  font-weight: 700;
+  line-height: 1.0;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+/*その他と主な共通部分は省略*/
+
+a.btn--green {
+  color: #fff;
+  background-color: #0bd;
+}
+
+a.btn--green:hover {
+  color: #fff;
+  background: #0bd;
+}
+
+a.btn--green.btn--cubic {
+  border-bottom: 5px solid #627295;
+}
+
+a.btn--green.btn--cubic:hover {
+  margin-top: 3px;
+  border-bottom: 2px solid #627295;
+}
+
+a.btn-c {
+  font-size: 1.2rem;
+  position: relative;
+  padding: 1.5rem 3rem 1.5rem 2rem;
+}
+
+a.btn-c i.fa {
+  margin-right: 1rem;
+}
+
+/*.footer-wrapper{
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 120px;
+    box-sizing: border-box;
+}*/
+
+footer{
+    width: 100%;
+    background-color: #89c7de;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
 }
