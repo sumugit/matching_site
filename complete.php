@@ -48,9 +48,11 @@ if (!empty($_POST["nickname"]) && !empty($_POST["old"])) {
         $old = htmlspecialchars($_POST["old"]);
         $pref_name_live = htmlspecialchars($_POST["pref_name_live"]);
         $pref_name_from = htmlspecialchars($_POST["pref_name_from"]);
+        $bloodtype = htmlspecialchars($_POST["bloodtype"]);
         $sign = htmlspecialchars($_POST["sign"]);
         $height = htmlspecialchars($_POST["height"]);
         $style = htmlspecialchars($_POST["style"]);
+        $looks = htmlspecialchars($_POST["looks"]);
         $job = htmlspecialchars($_POST["job"]);
         $income = htmlspecialchars($_POST["income"]);
         $marriage = htmlspecialchars($_POST["marriage"]);
@@ -69,7 +71,7 @@ if (!empty($_POST["nickname"]) && !empty($_POST["old"])) {
         //ファイルの排他ロック
         flock($fp, LOCK_EX);
         //出力データ生成
-        $output = join(",", array($_SESSION['id'], $myimage, $message, $nickname, $old, $pref_name_live, $pref_name_from, $sign, $height, $style, $job, $income, $marriage, $child, $cigarette, $alcohol, $car, $people, $brother, $meet, $cost)) . "\n";
+        $output = join(",", array($_SESSION['id'], $myimage, $message, $nickname, $old, $pref_name_live, $pref_name_from, $bloodtype, $sign, $height, $style, $looks, $job, $income, $marriage, $child, $cigarette, $alcohol, $car, $people, $brother, $meet, $cost)) . "\n";
 
         //プロフィールファイルの一部を書き換えるため,
         //一旦csvの中身を全て配列に保存し, ファイルの中を空にする
@@ -126,8 +128,8 @@ if (!empty($_POST["nickname"]) && !empty($_POST["old"])) {
             クルマ: <?php echo $car ?>
             同居人: <?php echo $people ?><br>
             兄弟関係: <?php echo $brother ?><br>
-            出会うまでの希望: <?php echo $meet ?>
-            初回デート費用: <?php echo $cost ?>
+            出会うまでの希望: <?php echo $meet ?><br>
+            初回デート費用: <?php echo $cost ?><br>
         </p>
         <p>
             <a href="./profile.php" target="_self">プロフィール確認</a><br>

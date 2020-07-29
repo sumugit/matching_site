@@ -7,7 +7,6 @@ if (isset($_SESSION['login']) == false) {
     print '<p id="login">アプリに';
     print '<b><a href="login.php">ログイン</a></b>';
     print '<br><p>';
-    exit();
 } else {
     print '<p id ="login">';
     print $_SESSION['nickname'] . '様-';

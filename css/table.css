@@ -25,6 +25,27 @@ td{
   background: #f1fafe;
 }
 
+textarea {
+  width: 100%; /* 幅 */
+  margin: 1em 0; /* 周囲の余白 */
+  padding: 0.5em; /* 枠線内の余白 */
+  font-size: 1em; /* フォントサイズ */
+  border: solid 2px #e1e3e8; /* 枠線のスタイル */
+  border-radius: 4px; /* 角丸に */
+  resize: none; /* リサイズ不可に */
+}
+/* フォーカス時のスタイル */
+textarea:focus {
+  border-color: #56a9ff;
+  outline: 0;
+}
+
+.poscenter p{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 
 /*ボタン*/
 .btn,
@@ -80,4 +101,72 @@ a.btn-c {
 
 a.btn-c i.fa {
   margin-right: 1rem;
+}
+
+.cp_ipselect {
+	overflow: hidden;
+	width: 50%;
+	margin: 1em auto;
+	text-align: center;
+}
+.cp_ipselect select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl01 {
+	position: relative;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	background: #ffffff;
+}
+.cp_ipselect.cp_sl01::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl01 select {
+	padding: 8px 38px 8px 8px;
+	color: #666666;
+}
+
+.cp_iptxt {
+	position: relative;
+	width: 80%;
+	margin: 1em auto;
+}
+.cp_iptxt input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+}
+.ef input[type='text']:focus {
+	border: 2px solid #56a9ff;
+	outline: none;
 }

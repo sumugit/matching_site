@@ -270,13 +270,16 @@ ul li {
 
 /*ボタン*/
 .button {
-    margin-left: 100px;
+    width: 100px;
+    height: 45px;
+    text-align: center;
+    margin-left: 280px;
     margin-top: 10px;
     font-size: 1.375rem;
     background: #0bd;
     color: #fff;
     border-radius: 5px;
-    padding: 18px 32px;
+    padding: 5px 10px 5px 10px;
 }
 .button:hover {
     background: #0090aa;

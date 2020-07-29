@@ -109,6 +109,7 @@ if (isset($_SESSION['login']) == false) {
                     <?php print "<tr><td>出会うまでの希望</td><td>" . $content[21] . "</td></tr>"; ?>
                     <?php print "<tr><td>初回デート費用</td><td>" . $content[22] . "</td></tr>"; ?>
                 </table>
+                </br>
             </div>
         </div>
     </div>
