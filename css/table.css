@@ -1,0 +1,83 @@
+.center{
+  text-align: center;
+  border: 1px dashed #999; /* わかりやすくボーターを付けておきます */
+}
+
+table{
+    width: 500px;
+  border-collapse: separate;
+  border-spacing: 0px 5px;
+  margin: 0 auto;
+}
+
+th {
+  background:  #10a0e0;
+  border: solid 1px #ccc;
+  color: #fff;
+  padding: 10px;
+}
+
+td{
+  padding: 10px;
+}
+
+td{
+  background: #f1fafe;
+}
+
+
+/*ボタン*/
+.btn,
+a.btn,
+.editButton.btn {
+  margin-left: 100px;
+  font-weight: 700;
+  line-height: 1.0;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+
+/*その他と主な共通部分は省略*/
+
+a.btn--green {
+  color: #fff;
+  background-color: #0bd;
+}
+
+a.btn--green:hover {
+  color: #fff;
+  background: #0bd;
+}
+
+a.btn--green.btn--cubic {
+  border-bottom: 5px solid #627295;
+}
+
+a.btn--green.btn--cubic:hover {
+  margin-top: 3px;
+  border-bottom: 2px solid #627295;
+}
+
+a.btn-c {
+  font-size: 1.2rem;
+  position: relative;
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+a.btn-c i.fa {
+  margin-right: 1rem;
+}

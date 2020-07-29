@@ -4,14 +4,13 @@ session_start();
 session_regenerate_id(true);
 //変数がセットされているか
 if (isset($_SESSION['login']) == false) {
-    print '<p id="login">ようこそ';
-    print "ゲスト様-";
-    print '<a href="login.html">ログイン</a><br>';
+    print '<p id="login">アプリに';
+    print '<b><a href="login.php">ログイン</a></b>';
     print '<br><p>';
 } else {
-    print '<p>ようこそ';
+    print '<p id ="login">ようこそ';
     print $_SESSION['nickname'] . '様-';
-    print '<a href="logout.php">ログアウト</a><br>';
+    print '<a href="logout.php"><b>ログアウト</b></a>';
     print '<br><p>';
 }
 ?>
@@ -24,20 +23,19 @@ if (isset($_SESSION['login']) == false) {
     <meta name="description" content="異性とのマッチングを促すサイトです。">
 
     <!--CSS-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
-    <link href="css/style2.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="siteimages/favicon.png">
+    <link href="css/style3.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="contenar">
         <div id="field">
             <div id="home" class="top-image-area">
-                <a href="index.php"><img class="logo" src="siteimages/header.png" alt="マッチングナビロゴ"></a>
+                <a href="index.php"><img class="logo" src="siteimages/header2.png" alt="マッチングナビロゴ"></a>
                 <header class="page-header wrapper">
                     <nav>
                         <ul class="main-nav">
@@ -51,8 +49,8 @@ if (isset($_SESSION['login']) == false) {
                     </nav>
                 </header>
                 <br><br><br>
-                <a href="./enroll.html" class="btn btn-c btn--green btn--cubic">新規会員登録</a>
-                <a href="./login.html" class="btn2 btn-c btn--green btn--cubic">　ログイン　</a>
+                <a href="./enrollInfo.php" class="btn btn-c btn--green btn--cubic">新規会員登録</a>
+                <a href="./login.php" class="btn2 btn-c btn--green btn--cubic">　ログイン　</a>
                 <!-- 画面上部の帯 -->
                 <div id="top_belt"></div>
                 <!-- スライド表示枠 -->
@@ -104,7 +102,7 @@ if (isset($_SESSION['login']) == false) {
 </body>
 <div class="footer-wrapper">
     <footer>
-        <p><small>&copy; マッチングナビ 2020 仮</small></p>
+        <p><small>&copy; マッチングナビ 2020</small></p>
     </footer>
 </div>
 
