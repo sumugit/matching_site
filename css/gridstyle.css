@@ -18,3 +18,7 @@
     background: #fff0ff;
     padding: 10px;
 }
+
+.item:hover {
+    background-color: #F6F7F8;
+}

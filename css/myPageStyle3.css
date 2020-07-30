@@ -11,8 +11,13 @@
     grid-template-rows: 200px 200px 200px;
 }
 .item {
+    height: 200px;
     text-align: center;
     background: #fff;
     color: #0bd;
     padding: 10px;
+}
+
+.item:hover {
+    background-color: #F6F7F8;
 }
