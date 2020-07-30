@@ -15,7 +15,7 @@ if (isset($_SESSION['login']) == false) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
     <meta charset="utf-8">
@@ -53,10 +53,10 @@ if (isset($_SESSION['login']) == false) {
                     <div class="item"><a href="./confirmFootPrint.php"><p>足あと</p><img src="./siteimages/trace.png" width="156" height="156" alt="アイコン"></a></div>
                     <div class="item"><a href="./confirmGood.php"><p>あなたへのいいね</p></br><img src="./siteimages/good.jpg" width="120" height="120" alt="アイコン"></a></div>
                     <div class="item"><a href="./confirmLove.php"><p>あなたへのタイプ</p></br><img src="./siteimages/heart.png" width="156" height="120" alt="アイコン"></a></div>
-                    <div class="item"><a href="./confirmMyGood.php"><p>いいねした相手</p><img src="./siteimages/good.jpg" width="156" height="156" alt="アイコン"></a></div>
-                    <div class="item"><a href="./confirmMyLove.php"><p>タイプした相手</p><img src="./siteimages/heart.png" width="156" height="120" alt="アイコン"></a></div>
-                    <div class="item"><a href="./info.php"><p>お知らせ</p><img src="./siteimages/info.png" width="140" height="140" alt="アイコン"></a></div>
-                    <div class="item"><a href="./news.php"><p>最新情報</p></br><img src="./siteimages/news.png" width="110" height="110" alt="アイコン"></a></div>
+                    <div class="item"><a href="./confirmMyGood.php"><p>いいねした相手</p></br><img src="./siteimages/putGood.jpg" width="156" height="120" alt="アイコン"></a></div>
+                    <div class="item"><a href="./confirmMyLove.php"><p>タイプした相手</p></br><img src="./siteimages/putLove.jpg" width="156" height="120" alt="アイコン"></a></div>
+                    <div class="item"><a href="./info.php"><p>お知らせ</p></br><img src="./siteimages/info.png" width="130" height="130" alt="アイコン"></a></div>
+                    <div class="item"><a href="./news.php"><p>最新情報</p></br></br><img src="./siteimages/news.png" width="100" height="100" alt="アイコン"></a></div>
                 </div>
             </div>
         </div>
