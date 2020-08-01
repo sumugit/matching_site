@@ -15,6 +15,9 @@
 }
 
 .item {
+    text-align: center;
+    min-height: 230px;
+    max-height: 230px;
     background: #fff0ff;
     padding: 10px;
 }

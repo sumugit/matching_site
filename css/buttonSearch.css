@@ -6,7 +6,7 @@
   box-sizing: inherit;
 }
 
-html {
+.buttonFont {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 62.5%;/*rem算出をしやすくするために*/
@@ -77,13 +77,15 @@ button.btn {
     border-bottom: none;
 }
 
-/*メッセージボタン*/
 a.btn--green {
-    font-size: 2rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 120%;/*rem算出をしやすくするために*/
+    width: 240px;
     position: relative;
-    padding: 1.5rem 3rem 1.5rem 2rem;
+    padding: 1.5rem 2rem 1.5rem 2rem;
     border-radius: 100vh;
-    margin-left: 210px;
+    margin-left: 220px;
     color: #fff;
     background-color: #0bd;
 }
