@@ -69,7 +69,7 @@ if (isset($_SESSION['login']) == false) {
                                             while (!feof($fp2)) {
                                                 $profile = fgetcsv($fp2);
                                                 //送った相手のid検索
-                                                if ($content[0] == $profile[0]) {
+                                                if ($content[0] == $profile[0] && $profile[0] != $_SESSION['id']) {
                                                     //URLパラメータ生成
                                                     print '<a href="userPlofile.php?id=' . $profile[0] . '"><div class="item"><img src = ' . $profile[1] . ' align="left" width="128" height="128" alt=""><p>　' . $profile[3] . ' </p><p>　' . $profile[4] . ' </p><hr  style="border:1px dashed #000000;"><p>　'. $profile[2] .' </p></div></a>';
                                                     break;
