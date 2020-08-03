@@ -2,8 +2,24 @@
 
 /*共通部分
 -----------------------------------------*/
+
+#wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  width: 30%;
+  float: left;
+}
+
+.right-column {
+  width: 70%;
+}
+
 #login{
-    margin: 0 auto;
     margin-top: 50px;
     width: 690px;
 }
@@ -14,17 +30,17 @@
 }
 
 #field {
-    margin-left: auto;
+    margin-left: 50%;
     margin-right: auto;
-    margin-top: 0px;
-	width: 700px;
-	height: 900px;
-	/*padding: 10px;*/
-	background-color: #F9C1CF;
-	border: 1px solid grey;
-	border-radius: 10px;
-	overflow: scroll;
-	word-break: break-all;
+    margin-top: 5%;
+    width: 700px;
+    height: 900px;
+    /*padding: 10px;*/
+    background-color: #F9C1CF;
+    border: 1px solid grey;
+    border-radius: 10px;
+    overflow: scroll;
+    word-break: break-all;
 }
 
 
@@ -372,8 +388,14 @@ a.btn-c i.fa {
     box-sizing: border-box;
 }*/
 
+.footer-wrapper {
+    min-height: 30vh;/*①高さの最小値*/
+    position: relative;/*②相対位置*/ 
+}
+
 footer{
     width: 100%;
+    height: 200px;
     background-color: #89c7de;
     color: #fff;
     text-align: center;
@@ -381,4 +403,8 @@ footer{
 
     position: absolute;/*←絶対位置*/
     bottom: 0; /*下に固定*/
+}
+
+ul.footer-menu li {
+display: inline;
 }
