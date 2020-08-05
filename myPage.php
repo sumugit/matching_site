@@ -26,7 +26,7 @@ if (isset($_SESSION['login']) == false) {
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/myPageStyle3.css" rel="stylesheet">
-    <link href="css/style3.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
