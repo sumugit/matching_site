@@ -1,26 +1,10 @@
-<?php
-//ログイン状態
-session_start();
-session_regenerate_id(true);
-//変数がセットされているか
-if (isset($_SESSION['login']) == false) {
-    print '<p id="login">アプリに';
-    print '<b><a href="login.html">ログイン</a></b>';
-    print '<br><p>';
-} else {
-    print '<p>ようこそ';
-    print $_SESSION['nickname'] . '様-';
-    print '<a href="logout.php">ログアウト</a><br>';
-    print '<br><p>';
-}
-?>
-
 
 <!DOCTYPE heml>
 <html lang="ja">
 
 <head>
     <meta http-equiv="content-type" charset="utf-8">
+    <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
     <!--CSS-->
     <link href="css/style3.css" rel="stylesheet">
     <title>会員登録</title>

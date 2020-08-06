@@ -1,21 +1,3 @@
-<?php
-//ログイン状態
-session_start();
-session_regenerate_id(true);
-//変数がセットされているか
-if (isset($_SESSION['login']) == false) {
-    print '<p id="login">アプリに';
-    print '<b><a href="login.php">ログイン</a></b>';
-    print '<br><p>';
-} else {
-    print '<p id ="login">';
-    print $_SESSION['nickname'] . '様-';
-    print '<a href="logout.php"><b>ログアウト</b></a>';
-    print '<br><p>';
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -26,6 +8,7 @@ if (isset($_SESSION['login']) == false) {
 
     <!--CSS-->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
@@ -41,9 +24,7 @@ if (isset($_SESSION['login']) == false) {
         <ul class="sideBar">
             <li><a href="index.php">ホーム</a></li>
             <li><a href="serach.php">プロフ検索</a></li>
-            <li><a href="bulletinInfo.php">掲示板</a></li>
             <li><a href="chatInfo.php">メッセージ</a></li>
-            <li><a href="myPage.php">マイページ</a></li>
             <li><a href="profile.php">プロフィール</a></li>
             <li><a href="loginInfo.php">登録情報</a></li>
             <li><a href="confirmFootPrint.php">足跡</a></li>
@@ -55,13 +36,25 @@ if (isset($_SESSION['login']) == false) {
             <li><a href="news.php">最新情報</a></li>
             <li><a href="constant.php">お問い合わせ</a></li>
         </ul>
-        <p>　</p>
-        <p>　</p>
-        <p>　</p>
-        <p>　</p>
     </div>
     <div class="wrapper">
         <div class="right-column">
+            <?php
+            //ログイン状態
+            session_start();
+            session_regenerate_id(true);
+            //変数がセットされているか
+            if (isset($_SESSION['login']) == false) {
+                print '<p id="login">アプリに';
+                print '<b><a href="login.php">ログイン</a></b>';
+                print '<br><p>';
+            } else {
+                print '<p id ="login">';
+                print $_SESSION['nickname'] . '様-';
+                print '<a href="logout.php"><b>ログアウト</b></a>';
+                print '<br><p>';
+            }
+            ?>
             <header>
                 <!--<p>マッチングナビはあなたに相性の良い異性とのマッチングを促します。</p>-->
                 <div class="top-header">
@@ -80,7 +73,7 @@ if (isset($_SESSION['login']) == false) {
             <div id="contenar">
                 <div id="field">
                     <div id="home" class="top-image-area">
-                        <a href="index.php"><img class="logo" src="siteimages/header2.png" alt="マッチングナビロゴ"></a>
+                        <a href="index.php"><img class="logo" src="siteimages/header.png" height="130" alt="マッチングナビロゴ"></a>
                         <div class="page-header">
                             <nav>
                                 <ul class="main-nav">
@@ -96,6 +89,9 @@ if (isset($_SESSION['login']) == false) {
                         <br><br><br>
                         <a href="./enrollInfo.php" class="btn btn-c btn--green btn--cubic">新規会員登録</a>
                         <a href="./login.php" class="btn2 btn-c btn--green btn--cubic">　ログイン　</a>
+                        <br><br><br>
+                        <h2 class="page-title">素敵な出会いを、ここで</h2>
+                        <p class="sentence">マッチングナビはあなたに相性の良い異性との出会いを促します</p>
                         <!-- 画面上部の帯 -->
                         <div id="top_belt"></div>
                         <!-- スライド表示枠 -->
@@ -117,7 +113,7 @@ if (isset($_SESSION['login']) == false) {
                                 <!-- スライド1 -->
                                 <div id="photo1" class="pic">
                                     <!-- スライド写真と現スライド標示ボタン -->
-                                    <img src="siteimages/1.jpeg"><img src="siteimages/1.png">
+                                    <img src="siteimages/1.jpg"><img src="siteimages/1.png">
                                     <!-- 送りボタンの表示とラジオボタンとの関連付け -->
                                     <label for="back1"><span class="pb">＜</span></label>
                                     <label for="next1"><span class="nb">＞</span></label>
@@ -140,6 +136,7 @@ if (isset($_SESSION['login']) == false) {
                         <div class="home-content wrapper">
                         </div><!-- /.home-content-->
                     </div><!-- /#home -->
+                    <br><br><br>
                 </div>
             </div>
             <div class="footer-wrapper">
