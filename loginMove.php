@@ -2,18 +2,15 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <title>【素敵な出会い】マッチングナビ！</title>
-    <meta name="description" content="異性とのマッチングを促すサイトです。">
-
-    <!--CSS-->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <title>閲覧拒否</title>
 </head>
 
 <body background="siteimages/b094.jpg">
@@ -38,24 +35,7 @@
     </div>
     <div class="wrapper">
         <div class="right-column">
-            <?php
-            //ログイン状態
-            session_start();
-            session_regenerate_id(true);
-            //変数がセットされているか
-            if (isset($_SESSION['login']) == false) {
-                print '<p id="login">アプリに';
-                print '<b><a href="login.php">ログイン</a></b>';
-                print '<br><p>';
-            } else {
-                print '<p id ="login">';
-                print $_SESSION['nickname'] . '様-';
-                print '<a href="logout.php"><b>ログアウト</b></a>';
-                print '<br><p>';
-            }
-            ?>
             <header>
-                <!--<p>マッチングナビはあなたに相性の良い異性とのマッチングを促します。</p>-->
                 <div class="top-header">
                     <nav>
                         <ul>
@@ -85,57 +65,13 @@
                                 </ul>
                             </nav>
                         </div>
-                        <br><br><br>
-                        <a href="./enrollInfo.php" class="btn btn-c btn--blue btn--cubic">新規会員登録</a>
-                        <a href="./login.php" class="btn2 btn-c btn--blue btn--cubic">　ログイン　</a>
-                        <br><br><br>
-                        <h2 class="page-title">素敵な出会いを、ここで</h2>
-                        <p class="sentence">マッチングナビはあなたに相性の良い異性との出会いを促します</p>
-                        <!-- 画面上部の帯 -->
-                        <div id="top_belt"></div>
-                        <!-- スライド表示枠 -->
-                        <div id="stage">
-                            <!-- スライド切換えボタン用ラジオボタン -->
-                            <input type="radio" id="r1" name="gal">
-                            <input type="radio" id="r2" name="gal">
-                            <input type="radio" id="r3" name="gal">
-                            <!-- 送りボタン用ラジオボタン -->
-                            <input type="radio" id="back1" name="gal"><input type="radio" id="next1" name="gal">
-                            <input type="radio" id="back2" name="gal"><input type="radio" id="next2" name="gal">
-                            <input type="radio" id="back3" name="gal"><input type="radio" id="next3" name="gal">
-                            <!-- 現スライド標示ボタンのラジオボタンとの関連付け -->
-                            <label for="r1" id="lb1" class="circ"><img src="siteimages/2.png"></label>
-                            <label for="r2" id="lb2" class="circ"><img src="siteimages/2.png"></label>
-                            <label for="r3" id="lb3" class="circ"><img src="siteimages/2.png"></label>
-                            <!-- スライド群 -->
-                            <div id="photos">
-                                <!-- スライド1 -->
-                                <div id="photo1" class="pic">
-                                    <!-- スライド写真と現スライド標示ボタン -->
-                                    <img src="siteimages/1.jpg"><img src="siteimages/1.png">
-                                    <!-- 送りボタンの表示とラジオボタンとの関連付け -->
-                                    <label for="back1"><span class="pb">＜</span></label>
-                                    <label for="next1"><span class="nb">＞</span></label>
-                                </div>
-                                <div id="photo2" class="pic">
-                                    <img src="siteimages/2.jpg"><img src="siteimages/1.png">
-                                    <label for="back2"><span class="pb">＜</span></label>
-                                    <label for="next2"><span class="nb">＞</span></label>
-                                </div>
-                                <div id="photo3" class="pic">
-                                    <img src="siteimages/3.jpg"><img src="siteimages/1.png">
-                                    <label for="back3"><span class="pb">＜</span></label>
-                                    <label for="next3"><span class="nb">＞</span></label>
-                                </div>
-                            </div>
-                            <!-- stageの高さの確保 -->
-                            <div style="padding:28%;"></div>
+                        <div class="error">
+                        <img src="siteimages/error.jpg" width="150" height="128" alt="ログイン失敗"></br></br>
+                        <p>ログインしていません。</p></br>
+                        <a href="./login.php" class="btn2 btn-c btn--blue btn--cubic">ログイン画面へ</a>
                         </div>
-
-                        <div class="home-content wrapper">
-                        </div><!-- /.home-content-->
-                    </div><!-- /#home -->
-                    <br><br><br>
+                        </br>
+                    </div>
                 </div>
             </div>
             <div class="footer-wrapper">

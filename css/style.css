@@ -471,21 +471,21 @@ button.btn2 {
   border-radius: 0.5rem;
 }
 
-a.btn--green {
+a.btn--blue {
   color: #fff;
   background-color: #00bfff;
 }
 
-a.btn--green:hover {
+a.btn--blue:hover {
   color: #fff;
   background: #00bfff;
 }
 
-a.btn--green.btn--cubic {
+a.btn--blue.btn--cubic {
   border-bottom: 5px solid #627295;
 }
 
-a.btn--green.btn--cubic:hover {
+a.btn--blue.btn--cubic:hover {
   margin-top: 3px;
   border-bottom: 2px solid #627295;
 }
@@ -547,4 +547,11 @@ footer{
 }
 .foot-wrap a:hover {
     color: grey;
+}
+
+/*ログイン失敗時
+-----------------------------------------*/
+.error {
+  margin-top: 10%;
+  text-align: center;
 }

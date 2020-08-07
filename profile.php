@@ -43,9 +43,7 @@
             session_regenerate_id(true);
             //変数がセットされているか
             if (isset($_SESSION['login']) == false) {
-                print 'ログインされていません。<br>';
-                print '<a href="login.php">ログイン画面へ</a><br>';
-                print '<br>';
+                header("Location: loginMove.php");
                 exit();
             } else {
                 print '<p id ="login">';
