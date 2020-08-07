@@ -10,16 +10,10 @@
 /* Simple Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* body */
-/*body {
-  background: #F9C1CF;
-  color: #5e5e5e;
-  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
-}*/
 
 /* Form Layout */
 .form-wrapper {
-  background: #fafafa;
+  background: #F0F8FF;
   margin: 3em auto;
   padding: 0 1em;
   max-width: 370px;
@@ -62,7 +56,7 @@ form {
 }
 
 .button-panel .submitButton {
-  background: #0bd;
+  background: #00bfff;
   border: none;
   color: #fff;
   cursor: pointer;
