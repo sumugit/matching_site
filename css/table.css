@@ -52,6 +52,27 @@ textarea:focus {
 /*ボタン
 -----------------------------*/
 
+.btn-flat-BackAll {
+  display: table-cell;
+  width: 100%;
+  font-size: x-large;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #808080;
+  background: #d3d3d3;
+  transition: .4s;
+  border-right: solid #808080 1px;
+}
+
+.btn-flat-BackAll:hover {
+  background: #808080;
+  color: #d3d3d3;
+}
+
 .btn-flat-simpleBack {
   display: table-cell;
   width: 50%;
@@ -215,7 +236,7 @@ a.btn-c i.fa {
 	border-radius: 4px;
 }
 .ef input[type='text']:focus {
-	border: 2px solid #56a9ff;
+	border: 2px solid #00bfff;
 	outline: none;
 }
 

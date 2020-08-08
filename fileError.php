@@ -4,15 +4,13 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/table.css" rel="stylesheet">
-    <link href="css/box.css" rel="stylesheet">
-    <title>アカウント情報</title>
+    <title>閲覧拒否</title>
 </head>
 
 <body background="siteimages/b094.jpg">
@@ -37,21 +35,6 @@
     </div>
     <div class="wrapper">
         <div class="right-column">
-            <?php
-            //ログイン状態
-            session_start();
-            session_regenerate_id(true);
-            //変数がセットされているか
-            if (isset($_SESSION['login']) == false) {
-                header("Location: loginMove.php");
-                exit();
-            } else {
-                print '<p id ="login">';
-                print $_SESSION['nickname'] . '様-';
-                print '<a href="logout.php"><b>ログアウト</b></a>';
-                print '<br><p>';
-            }
-            ?>
             <header>
                 <div class="top-header">
                     <nav>
@@ -82,43 +65,12 @@
                                 </ul>
                             </nav>
                         </div>
-                        <?php
-                            print '<p><a href="javascript:history.back();" class="btn-flat-simpleBack"><i class="fa fa-chevron-left"></i>戻る</a>';
-                            print '<a href="usersEdit.php" class="btn-flat-simple">編集</a></p>';
-                            print '<br>';
-                        if (is_file("./csv/users.csv")) { //登録ファイルが存在するか
-                            if (is_readable("./csv/users.csv")) { //登録ファイルを読み込めるか
-                                $fp = fopen("./csv/users.csv", "r");
-                                flock($fp, LOCK_SH);
-                                //idが登録ユーザーと一致するまで一行ずつ取り出す
-                                while (!feof($fp)) {
-                                    $content = fgetcsv($fp);
-                                    //ログインしているユーザーの情報を取得
-                                    if ($content[0] == $_SESSION['id']) {
-                                        break;
-                                    }
-                                }
-                                //登録ファイルを閉じる
-                                flock($fp, LOCK_UN);
-                                fclose($fp);
-                            } else {
-                                echo "ファイルが開けません。";
-                                exit();
-                            }
-                        } else {
-                            echo "ファイルがありません。";
-                            exit();
-                        }
-                        ?>
-                        <br><br><br>
-                        <table>
-                            <th colspan="2">アカウント情報</th>
-                            <?php print "<tr><td>ニックネーム</td><td>" . $content[1] . "</td></tr>"; ?>
-                            <?php print "<tr><td>本名</td><td>" . $content[5] . "</td></tr>"; ?>
-                            <?php print "<tr><td>性別</td><td>" . $content[2] . "</td></tr>"; ?>
-                            <?php print "<tr><td>メールアドレス</td><td>" . $content[3] . "</td></tr>"; ?>
-                        </table>
-                        <br>
+                        <div class="error">
+                            <img src="siteimages/error.jpg" width="150" height="128" alt="ログイン失敗"></br></br>
+                            <p>ファイルが開けません。</p></br>
+                            <a href="javascript:history.back();" class="btn2 btn-c btn--blue btn--cubic">戻る</a>
+                        </div>
+                        </br>
                     </div>
                 </div>
             </div>

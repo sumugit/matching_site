@@ -45,14 +45,18 @@
                 //登録ファイルを閉じる
                 flock($fp, LOCK_UN);
                 fclose($fp);
-                print 'メールアドレスまたはパスワードが違います。<br>';
-                print '<form>';
-                print '<input type="button" onclick="history.back()" value="戻る">';
-                print '</form>';                    
-            } else
+                header("Location: failed.php");
+                exit();
+            } else{
                 echo "ファイルが開けません。";
-        } else
+                header("Location: fileError.php");
+                exit();
+            }
+        } else {
             echo "ファイルがありません。";
+            header("Location: fileError.php");
+            exit();
+        }
     }
     ?>
 </body>
