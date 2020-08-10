@@ -1,20 +1,3 @@
-<?php
-//ログイン状態
-session_start();
-session_regenerate_id(true);
-//変数がセットされているか
-if (isset($_SESSION['login']) == false) {
-    print 'ログインされていません。<br>';
-    print '<a href="login.php">ログイン画面へ</a><br>';
-    print '<br>';
-    exit();
-} else {
-    print '<p id ="login">';
-    print $_SESSION['nickname'] . '様-';
-    print '<a href="logout.php"><b>ログアウト</b></a>';
-    print '<br><p>';
-}
-?>
 
 <!DOCTYPE html>
 <html>
