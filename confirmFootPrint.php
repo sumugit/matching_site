@@ -114,11 +114,12 @@
                                                     flock($fp2, LOCK_UN);
                                                     fclose($fp2);
                                                 } else {
-                                                    echo "ファイルが開けません。";
+                                                    header("Location: fileError.php");
                                                     exit();
                                                 }
                                             } else {
-                                                echo "ファイルがありません。";
+                                                header("Location: fileError.php");
+                                                exit();
                                             }
                                         }
                                     }

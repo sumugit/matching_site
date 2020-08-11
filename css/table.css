@@ -65,7 +65,6 @@ textarea:focus {
   color: #808080;
   background: #d3d3d3;
   transition: .4s;
-  border-right: solid #808080 1px;
 }
 
 .btn-flat-BackAll:hover {

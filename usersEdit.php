@@ -99,11 +99,11 @@
                                 flock($fp, LOCK_UN);
                                 fclose($fp);
                             } else {
-                                echo "ファイルが開けません。";
+                                header("Location: fileError.php");
                                 exit();
                             }
                         } else {
-                            echo "ファイルがありません。";
+                            header("Location: fileError.php");
                             exit();
                         }
                         ?>

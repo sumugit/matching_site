@@ -1,10 +1,7 @@
 @charset "UTF-8";
 
-.wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 4%;
-}
+/*ユーザーをグリッドレイアウトで並べる
+---------------------------------------*/
 
 .grid {
     display: grid;
@@ -18,10 +15,10 @@
     text-align: center;
     min-height: 230px;
     max-height: 230px;
-    background: #fff0ff;
+    background: #ffffff;
     padding: 10px;
 }
 
 .item:hover {
-    background-color: #F6F7F8;
+    background-color: #fff0ff;
 }
