@@ -1,3 +1,7 @@
+@charset "utf-8";
+/*メッセージ送信ボタン
+--------------------------------*/
+
 .submit {
   margin-left: 10px;
   margin-bottom: 10px;
@@ -7,14 +11,14 @@
   text-align    : center;      /* 文字位置   */
   cursor        : pointer;     /* カーソル   */
   padding       : 7px 12px;   /* 余白       */
-  background    : #0bd;     /* 背景色     */
+  background    : #00bfff;     /* 背景色     */
   color         : #ffffff;     /* 文字色     */
   line-height   : 1em;         /* 1行の高さ  */
   transition    : .3s;         /* なめらか変化 */
-  border        : 2px solid #0bd;    /* 枠の指定 */
+  border        : 2px solid #00bfff;    /* 枠の指定 */
 }
 .submit:hover {
-  color         : #0bd;     /* 背景色     */
+  color         : #00bfff;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
 }
 
@@ -24,13 +28,13 @@ textarea {
   margin: 1em 0; /* 周囲の余白 */
   padding: 0.5em; /* 枠線内の余白 */
   font-size: 1em; /* フォントサイズ */
-  border: solid 2px #0bd; /* 枠線のスタイル */
+  border: solid 2px #00bfff; /* 枠線のスタイル */
   border-radius: 4px; /* 角丸に */
   resize: none; /* リサイズ不可に */
 }
 /* フォーカス時のスタイル */
 textarea:focus {
-  border-color: #0bd;
+  border-color: #00bfff;
   outline: 0;
 }
 
@@ -39,5 +43,6 @@ h1 {
   margin-top: 5%;
   padding: 0.3em;
   background: aliceblue;
+  color: #00bfff;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.23);
 }

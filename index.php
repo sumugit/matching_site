@@ -90,7 +90,7 @@
                         <a href="./login.php" class="btn2 btn-c btn--blue btn--cubic">　ログイン　</a>
                         <br><br><br>
                         <h2 class="page-title">素敵な出会いを、ここで</h2>
-                        <p class="sentence">マッチングナビはあなたに相性の良い異性との出会いを促します</p>
+                        <p class="sentence">マッチングナビはあなたの異性との出会いを促します</p>
                         <!-- 画面上部の帯 -->
                         <div id="top_belt"></div>
                         <!-- スライド表示枠 -->
@@ -152,8 +152,8 @@
                         <div class="menu-center">
                             <h3>決済</h3>
                             <ul class="foot-center">
-                                <li><a href="payment">ご利用料金</a></li>
-                                <li><a href="howToPay">お支払い方法</a></li>
+                                <li><a href="payment.php">ご利用料金</a></li>
+                                <li><a href="howToPay.php">お支払い方法</a></li>
                                 <li><a href="back.php">料金の払い戻し</a></li>
                             </ul>
                         </div>
@@ -161,7 +161,7 @@
                             <h3>個人情報の取り扱い</h3>
                             <ul class="foot-right">
                                 <li><a href="policy.php">プライバシーポリシー</a></li>
-                                <li><a href="law.php">特定商取引法に基づく表記</a></li>
+                                <li><a href="firm.php">特定商取引法に基づく表記</a></li>
                                 <li><a href="contact.php">お問い合わせ</a></li>
                             </ul>
                         </div>

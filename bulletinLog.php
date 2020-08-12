@@ -57,7 +57,7 @@ if ($mode == "0") {
                 //投稿の連番
                 $array[$i][4] = $array[$i][4] + 1;
                 //投稿内容
-                $inputValue = "<p>" . $array[$i][4] . ": <strong>名前 : " . $content[3] . "</strong><br>投稿日時 : <time>" . $time . "</time><br>" . $message . "</p><hr>";
+                $inputValue = "<p>" . $array[$i][4] . ": <strong>名前 : " . $content[3] . "</strong><br>投稿日時 : <time>" . $time . "</time><br>" . $message . "</p><hr color='#00bfff'>";
                 //正規表現で改行コードを置換(複数行入力できるようにする)
                 $inputValue = preg_replace("/\r|\n|\r\n/", "<br>", $inputValue);
                 //csvなので,は、に変換

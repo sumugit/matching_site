@@ -114,18 +114,19 @@
                                                     flock($fp2, LOCK_UN);
                                                     fclose($fp2);
                                                 } else {
-                                                    echo "ファイルが開けません。";
+                                                    header("Location: fileError.php");
                                                     exit();
                                                 }
                                             } else {
-                                                echo "ファイルがありません。";
+                                                header("Location: fileError.php");
+                                                exit();
                                             }
                                         }
                                     }
                                     flock($fp1, LOCK_UN);
                                     fclose($fp1);
                                     if ($flag == false) {
-                                        print "まだ誰もあなたをタイプしていません。<br><br>";
+                                        print "まだ誰もあなたをタイプしていません。<br>";
                                     }
                                 } else {
                                     header("Location: fileError.php");
@@ -154,8 +155,8 @@
                         <div class="menu-center">
                             <h3>決済</h3>
                             <ul class="foot-center">
-                                <li><a href="payment">ご利用料金</a></li>
-                                <li><a href="howToPay">お支払い方法</a></li>
+                                <li><a href="payment.php">ご利用料金</a></li>
+                                <li><a href="howToPay.php">お支払い方法</a></li>
                                 <li><a href="back.php">料金の払い戻し</a></li>
                             </ul>
                         </div>
@@ -163,7 +164,7 @@
                             <h3>個人情報の取り扱い</h3>
                             <ul class="foot-right">
                                 <li><a href="policy.php">プライバシーポリシー</a></li>
-                                <li><a href="law.php">特定商取引法に基づく表記</a></li>
+                                <li><a href="firm.php">特定商取引法に基づく表記</a></li>
                                 <li><a href="contact.php">お問い合わせ</a></li>
                             </ul>
                         </div>

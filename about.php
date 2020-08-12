@@ -2,19 +2,17 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+    <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
-    <link href="css/linestyle.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/bulletinButton.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
-    <title>メッセージ履歴</title>
+    <link href="css/common.css" rel="stylesheet">
+    <title>マッチングナビとは</title>
 </head>
 
 <body background="siteimages/b094.jpg">
@@ -39,21 +37,6 @@
     </div>
     <div class="wrapper">
         <div class="right-column">
-            <?php
-            //ログイン状態
-            session_start();
-            session_regenerate_id(true);
-            //変数がセットされているか
-            if (isset($_SESSION['login']) == false) {
-                header("Location: loginMove.php");
-                exit();
-            } else {
-                print '<p id ="login">';
-                print $_SESSION['nickname'] . '様-';
-                print '<a href="logout.php"><b>ログアウト</b></a>';
-                print '<br><p>';
-            }
-            ?>
             <header>
                 <div class="top-header">
                     <nav>
@@ -85,62 +68,33 @@
                             </nav>
                         </div>
                         <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
-                        </br>
-                        <div class="container">
-                            <?php
-                            //メッセージの履歴があるかどうか
-                            $flag = false;
-                            //メッセージの確認
-                            if (is_file("./csv/chatLog.csv")) { //ファイルが存在するか
-                                if (is_readable("./csv/chatLog.csv")) { //ファイルを読み込めるか
-                                    $fp1 = fopen("./csv/chatLog.csv", "r");
-                                    flock($fp1, LOCK_SH);
-                                    while (!feof($fp1)) {
-                                        $content = fgetcsv($fp1);
-                                        //自分のidの検索
-                                        if ($content[0] == $_SESSION['id']) {
-                                            $flag = true;
-                                            if (is_file("./csv/profile.csv")) { //ファイルが存在するか
-                                                if (is_readable("./csv/profile.csv")) { //ファイルを読み込めるか
-                                                    $fp2 = fopen("./csv/profile.csv", "r");
-                                                    flock($fp2, LOCK_SH);
-                                                    while (!feof($fp2)) {
-                                                        $profile = fgetcsv($fp2);
-                                                        //送った相手のid検索
-                                                        if ($content[1] == $profile[0]) {
-                                                            //URLパラメータ生成
-                                                            print '<a href="chat.php?id=' . $profile[0] . '"><div class="item"><img src = ' . $profile[1] . ' align="left" width="128" height="128" alt=""><p>　' . $profile[4] . ' ' . $profile[5] . ' </p><p id="big">　' . $profile[3] . ' </p><hr  style="border:1px dashed #000000;"><p>　' . $profile[2] . ' </p></div></a>';
-                                                            print '<a href="./userPlofile.php?id=' . $profile[0] . '" class="Bulletinbtn Bulletinbtn--blue Bulletinbtn--cubic">プロフィール確認</a>';
-                                                            break;
-                                                        }
-                                                    }
-                                                    flock($fp2, LOCK_UN);
-                                                    fclose($fp2);
-                                                } else {
-                                                    header("Location: fileError.php");
-                                                    exit();
-                                                }
-                                            } else {
-                                                header("Location: fileError.php");
-                                                exit();
-                                            }
-                                        }
-                                    }
-                                    flock($fp1, LOCK_UN);
-                                    fclose($fp1);
-                                    if ($flag == false) {
-                                        print "メッセージの履歴がありません。<br>";
-                                    }
-                                } else {
-                                    header("Location: fileError.php");
-                                    exit();
-                                }
-                            } else {
-                                header("Location: fileError.php");
-                                exit();
-                            }
-                            ?>
+                        </br></br>
+                        <div class="box30">
+                            <div class="box-title">マッチングナビってどんなサイト？</div>
+                            <p>マッチングナビは2020年8月に理系大学生が開発したコミュニティサイトです。
+                                サイト内で提供するメールやプロフィールのサービスを使って、会員様同士で自由に交流することができます。
+                                ご登録頂いた氏名やメールアドレスは完全非公開なので安心！
+                                もちろん「サクラ」、「やらせ」は一切ありません。
+                                出会い募集の掲示板以外にも、会員同士のメッセージサービスやプロフィールの検索機能など、お楽しみコンテンツも充実！
+                                あなたに合った楽しみ方で、マッチングナビをお楽しみください。</p>
                         </div>
+                        <br>
+                        <div class="box30">
+                            <div class="box-title">プロフィールを作成しよう！</div>
+                            <p>プロフィールはあなたの自己PRの場です。
+                                登録しただけのナイショだらけのプロフィールでは、お相手の興味を引く事は出来ません。
+                                しっかりと興味を持ってもらえるように、手を抜かずに作成しましょう！</p>
+                        </div>
+                        <br>
+                        <div class="box30">
+                            <div class="box-title">プロフィール作成のポイント！</div>
+                            <p>・好みのタイプ・自分のタイプを設定して、すれ違いをなくそう！
+                            <br>・プロフィール画像を活用しよう
+                            <br>・マイナスイメージではなく、自信をもってプラスイメージをだそう！
+                            <br>・自己紹介には、趣味や今はまっている物事、好きなものなど、共通の話題が持てるような内容でアピールしてみよう！
+                            <br>・何を自己紹介に書き込んでいいか悩んでるあなたには、簡単な挨拶からはじめてみよう。</p>
+                        </div>
+                        <br>
                     </div>
                 </div>
             </div>

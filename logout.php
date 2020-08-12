@@ -10,6 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">
     <title>マッチングナビ</title>
 </head>
 
@@ -73,9 +74,9 @@
                                 </ul>
                             </nav>
                         </div>
+                        <p><a href="index.php" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>ホームへ戻る</a></p>
+                        </br>
                         ログアウトしました。<br>
-                        <br>
-                        <a href="index.php">ホームへ戻る</a>
                     </div>
                 </div>
             </div>
@@ -93,8 +94,8 @@
                         <div class="menu-center">
                             <h3>決済</h3>
                             <ul class="foot-center">
-                                <li><a href="payment">ご利用料金</a></li>
-                                <li><a href="howToPay">お支払い方法</a></li>
+                                <li><a href="payment.php">ご利用料金</a></li>
+                                <li><a href="howToPay.php">お支払い方法</a></li>
                                 <li><a href="back.php">料金の払い戻し</a></li>
                             </ul>
                         </div>
@@ -102,7 +103,7 @@
                             <h3>個人情報の取り扱い</h3>
                             <ul class="foot-right">
                                 <li><a href="policy.php">プライバシーポリシー</a></li>
-                                <li><a href="law.php">特定商取引法に基づく表記</a></li>
+                                <li><a href="firm.php">特定商取引法に基づく表記</a></li>
                                 <li><a href="contact.php">お問い合わせ</a></li>
                             </ul>
                         </div>

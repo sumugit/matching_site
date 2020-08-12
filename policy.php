@@ -2,19 +2,17 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+    <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
-    <link href="css/linestyle.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/bulletinButton.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
-    <title>メッセージ履歴</title>
+    <link href="css/common.css" rel="stylesheet">
+    <title>プライバシーポリシー</title>
 </head>
 
 <body background="siteimages/b094.jpg">
@@ -39,21 +37,6 @@
     </div>
     <div class="wrapper">
         <div class="right-column">
-            <?php
-            //ログイン状態
-            session_start();
-            session_regenerate_id(true);
-            //変数がセットされているか
-            if (isset($_SESSION['login']) == false) {
-                header("Location: loginMove.php");
-                exit();
-            } else {
-                print '<p id ="login">';
-                print $_SESSION['nickname'] . '様-';
-                print '<a href="logout.php"><b>ログアウト</b></a>';
-                print '<br><p>';
-            }
-            ?>
             <header>
                 <div class="top-header">
                     <nav>
@@ -85,62 +68,26 @@
                             </nav>
                         </div>
                         <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
-                        </br>
-                        <div class="container">
-                            <?php
-                            //メッセージの履歴があるかどうか
-                            $flag = false;
-                            //メッセージの確認
-                            if (is_file("./csv/chatLog.csv")) { //ファイルが存在するか
-                                if (is_readable("./csv/chatLog.csv")) { //ファイルを読み込めるか
-                                    $fp1 = fopen("./csv/chatLog.csv", "r");
-                                    flock($fp1, LOCK_SH);
-                                    while (!feof($fp1)) {
-                                        $content = fgetcsv($fp1);
-                                        //自分のidの検索
-                                        if ($content[0] == $_SESSION['id']) {
-                                            $flag = true;
-                                            if (is_file("./csv/profile.csv")) { //ファイルが存在するか
-                                                if (is_readable("./csv/profile.csv")) { //ファイルを読み込めるか
-                                                    $fp2 = fopen("./csv/profile.csv", "r");
-                                                    flock($fp2, LOCK_SH);
-                                                    while (!feof($fp2)) {
-                                                        $profile = fgetcsv($fp2);
-                                                        //送った相手のid検索
-                                                        if ($content[1] == $profile[0]) {
-                                                            //URLパラメータ生成
-                                                            print '<a href="chat.php?id=' . $profile[0] . '"><div class="item"><img src = ' . $profile[1] . ' align="left" width="128" height="128" alt=""><p>　' . $profile[4] . ' ' . $profile[5] . ' </p><p id="big">　' . $profile[3] . ' </p><hr  style="border:1px dashed #000000;"><p>　' . $profile[2] . ' </p></div></a>';
-                                                            print '<a href="./userPlofile.php?id=' . $profile[0] . '" class="Bulletinbtn Bulletinbtn--blue Bulletinbtn--cubic">プロフィール確認</a>';
-                                                            break;
-                                                        }
-                                                    }
-                                                    flock($fp2, LOCK_UN);
-                                                    fclose($fp2);
-                                                } else {
-                                                    header("Location: fileError.php");
-                                                    exit();
-                                                }
-                                            } else {
-                                                header("Location: fileError.php");
-                                                exit();
-                                            }
-                                        }
-                                    }
-                                    flock($fp1, LOCK_UN);
-                                    fclose($fp1);
-                                    if ($flag == false) {
-                                        print "メッセージの履歴がありません。<br>";
-                                    }
-                                } else {
-                                    header("Location: fileError.php");
-                                    exit();
-                                }
-                            } else {
-                                header("Location: fileError.php");
-                                exit();
-                            }
-                            ?>
-                        </div>
+                        </br></br>
+                        <h1>プライバシーポリシー</h1>
+                        <p>
+                            株式会社Electricity and Communicationsは、インターネット上のサイト運営・不動産の管理を行うにあたって、お客様、利用者並びに当社従業者の個人情報及び特定個人情報等を保護することは重大な社会的責任と認識します。
+                            以下の通り個人情報及び特定個人情報保護方針を定め、適正な取扱いの確保について全社を挙げて取り組むことを宣言します。<br>
+                            <br>
+                            １．個人情報及び特定個人情報等は、受託した業務並びに従業者の雇用・人事管理上必要な範囲に限定して適切な手段で取得、提供します。<br>
+                            また、特定された利用目的の達成に必要な範囲を超えた取扱い（目的外利用）を行わず、それを実現するための措置を講じます。<br>
+                            （１）WEBサイト上で取得した個人情報はWEBサイトのサービス提供のため利用します。
+                            サービス提供の内容<br>
+                            ①属性情報・端末情報・位置情報・行動履歴等に基づく広告・コンテンツ等の配信・表示<br>
+                            ②本サービスの改善・新規サービスの開発及びマーケティング<br>
+                            （２）従業員、パート及び採用応募者から取得した個人情報は、採用選考、人事労務管理に利用します。<br>
+                            （３）個人情報を提供されることの任意性について<br>
+                            個人情報を提供されるかどうかは、本人の任意によるものです。ただし、必要な個人情報を提供いただけない場合、ＷＥＢサイトのサービスの提供が困難になるなど、関係者の求められる事項に対応できなくなることがあります。<br>
+                            （４）個人情報の第三者提供について<br>
+                            ・ユーザー<br>
+                            当社はＷＥＢサービスの提供を行う上で、ユーザーの個人情報をサービス提供先を識別し、連絡を取るために必要な範囲で提供いたします。
+                        </p>
+                        <br>
                     </div>
                 </div>
             </div>
