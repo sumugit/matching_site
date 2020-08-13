@@ -134,7 +134,7 @@
                                                 //一致するユーザーを表示
                                                 if ($i == 17) {
                                                     //URLパラメータ生成
-                                                    print '<a href="userPlofile.php?id=' . $content[0] . '"><div class="item"><img src = ' . $content[1] . ' width="128" height="128" alt=""><p><b>' . $content[5] . '　' . $content[4] . '</b></p><p>' . $content[2] . '</p></div></a>';
+                                                    print '<a href="userProfileSearch.php?id=' . $content[0] . '"><div class="item"><img src = ' . $content[1] . ' width="128" height="128" alt=""><p><b>' . $content[5] . '　' . $content[4] . '</b></p><p>' . $content[2] . '</p></div></a>';
                                                 }
                                             }
                                         }

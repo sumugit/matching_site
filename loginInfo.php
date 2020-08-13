@@ -83,7 +83,7 @@
                             </nav>
                         </div>
                         <?php
-                            print '<p><a href="javascript:history.back();" class="btn-flat-simpleBack"><i class="fa fa-chevron-left"></i>戻る</a>';
+                            print '<p><a href="myPage.php" class="btn-flat-simpleBack"><i class="fa fa-chevron-left"></i>マイページ</a>';
                             print '<a href="usersEdit.php" class="btn-flat-simple">編集</a></p>';
                             print '<br>';
                         if (is_file("./csv/users.csv")) { //登録ファイルが存在するか

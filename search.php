@@ -84,8 +84,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
-                        </br>
+                        <br>
                         <a href="./detail.php" class="Btn Btn--blue Btn--radius Btn--cubic"><i class="fas fa-angle-double-right fa-position-left"></i>条件を指定する<i class="fas fa-angle-double-left fa-position-right"></i></a>
                         <div class="wrapper grid">
                             <?php
@@ -106,7 +105,7 @@
                                             //同性のユーザーは無視
                                             if (strcmp($user[2], $_SESSION['sex']) != 0 && $user[2] != "") {
                                                 //URLパラメータ生成
-                                                print '<a href="userPlofile.php?id=' . $content[0] . '"><div class="item"><img src = ' . $content[1] . ' width="128" height="128" alt=""><p><b>' . $content[5] . '　' . $content[4] . '</b></p><p>' . $content[2] . '</p></div></a>';
+                                                print '<a href="userProfile.php?id=' . $content[0] . '"><div class="item"><img src = ' . $content[1] . ' width="128" height="128" alt=""><p><b>' . $content[5] . '　' . $content[4] . '</b></p><p>' . $content[2] . '</p></div></a>';
                                             }
                                         }
                                     }

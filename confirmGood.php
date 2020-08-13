@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
@@ -82,7 +83,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
+                        <p><a href="myPage.php" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>マイページ</a></p>
                         <br>
                         <div class="container">
                             <?php
@@ -107,7 +108,7 @@
                                                         //送った相手のid検索
                                                         if ($content[0] == $profile[0] && $profile[0] != $_SESSION['id']) {
                                                             //URLパラメータ生成
-                                                            print '<a href="userPlofile.php?id=' . $profile[0] . '"><div class="item"><img src = ' . $profile[1] . ' align="left" width="128" height="128" alt=""><p>　' . $profile[3] . ' </p><p>　' . $profile[4] . ' </p><hr  style="border:1px dashed #000000;"><p>　' . $profile[2] . ' </p></div></a>';
+                                                            print '<a href="userProfile.php?id=' . $profile[0] . '"><div class="item"><img src = ' . $profile[1] . ' align="left" width="128" height="128" alt=""><p>　' . $profile[3] . ' </p><p>　' . $profile[4] . ' </p><hr  style="border:1px dashed #000000;"><p>　' . $profile[2] . ' </p></div></a>';
                                                             break;
                                                         }
                                                     }

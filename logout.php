@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
+    <link href="css/posCenter.css" rel="stylesheet">
     <title>マッチングナビ</title>
 </head>
 
@@ -76,7 +77,7 @@
                         </div>
                         <p><a href="index.php" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>ホームへ戻る</a></p>
                         </br>
-                        ログアウトしました。<br>
+                        <div class="text-center">ログアウトしました。</div><br>
                     </div>
                 </div>
             </div>

@@ -39,7 +39,11 @@
     </div>
     <div class="wrapper">
         <div class="right-column">
-            <?php
+            <?php                        
+            if(empty($_GET['index'])){
+                header("Location: beyondExpectations.php");
+                exit();
+            }
             //ログイン状態
             session_start();
             session_regenerate_id(true);

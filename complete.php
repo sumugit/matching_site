@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -12,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/box.css" rel="stylesheet">
+    <link href="css/posCenter.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">
     <title>プロフィール編集完了</title>
 </head>
 
@@ -92,14 +93,14 @@
                             //画像ファイルが本当にアップロードされたか
                             if (is_uploaded_file($tempfile)) {
                                 if (move_uploaded_file($tempfile, $filename)) {
-                                    echo $filename . "をアップロードしました。";
+                                    //echo "<div class='text-center'>" . $filename . "をアップロードしました。</div>";
                                 } else {
-                                    echo "ファイルをアップロードできません。";
+                                    //echo "<div class='text-center'>ファイルをアップロードできません。</div>";
                                 }
                             } else {
                                 //男性か女性かで分けるようにしたい
                                 $filename = './image/unknown.jpg';
-                                echo "ファイルが選択されていません。";
+                                //echo "<div class='text-center'>ファイルが選択されていません。</div>";
                             }
 
                             //入力データの書き込み
@@ -135,7 +136,7 @@
                                 $meet = htmlspecialchars($_POST["meet"]);
                                 $cost = htmlspecialchars($_POST["cost"]);
 
-                                //ファイルへ書き込み
+                                //プロフファイルへ書き込み
                                 //r/w/a: 読み/書き/上書き
                                 $fp = fopen("./csv/profile.csv", "a+");
                                 //ファイルの排他ロック
@@ -162,10 +163,41 @@
                                 //ロック解除
                                 flock($fp, LOCK_UN);
                                 fclose($fp);
+                                $_SESSION['nickname'] = $nickname;
+
+                                //ユーザーファイルへ書き込み
+                                //r/w/a: 読み/書き/上書き
+                                $fp = fopen("./csv/users.csv", "a+");
+                                //ファイルの排他ロック
+                                flock($fp, LOCK_EX);
+                                //出力データ生成
+                                $output = join(",", array($_SESSION['id'], $nickname, $_SESSION['sex'], $_SESSION['email'], $_SESSION['pass'], $_SESSION['name'])) . "\n";
+                                //プロフィールファイルの一部を書き換えるため,
+                                //一旦csvの中身を全て配列に保存し, ファイルの中を空にする
+                                $array = array();
+                                while (!feof($fp)) {
+                                    array_push($array, fgets($fp));
+                                }
+                                ftruncate($fp, 0);
+                                //配列の先頭から格納
+                                for ($i = 0; $i < count($array); $i++) {
+                                    //編集した情報を更新(ユニークなidが一致すればよい)
+                                    if ($array[$i][0] == $_SESSION['id']) {
+                                        $array[$i] = $output;
+                                    }
+                                    //ファイルに書き込み
+                                    fputs($fp, $array[$i]);
+                                }
+                                //ロック解除
+                                flock($fp, LOCK_UN);
+                                fclose($fp);
                             }
                         }
                         ?>
                         <?php if (!empty($_POST["nickname"]) && strlen($_POST["nickname"]) != 0 && !empty($nickname) && !empty($_POST["old"])) : ?>
+                            <?php print '<p><a href="./profEdit.php" class="btn-flat-simpleBack"><i class="fa fa-chevron-left"></i>編集に戻る</a>';
+                                print '<a href="./profile.php" class="btn-flat-simple">プロフィール確認</a></p>'; ?>
+                            <br>
                             <div class="box30">
                                 <div class="box-title">プロフィール編集完了！</div>
                                 <p>
@@ -191,14 +223,12 @@
                                     初回デート費用: <?php echo $cost ?><br>
                                 </p>
                             </div>
-                            <p>
-                                <div class="containerbox"><a href="./profile.php" class="btn-push" target="_self">プロフィール確認</a></div>
-                                <div class="containerbox"><a href="./profEdit.php" class="btn-push" target="_self"> 　編集に戻る 　</a></div>
-                                <br>
-                                <br>
-                            </p>
                         <?php else : ?>
-                            <p>編集内容に不備があるようです。<br>再度プロフィールを編集し直してください。</p>
+                            <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
+                            </br>
+                            <div class="text-center">
+                                <p>編集内容に不備があるようです。<br>再度プロフィールを編集し直してください。</p>
+                            </div>
                         <?php endif; ?>
                     </div>
                 </div>

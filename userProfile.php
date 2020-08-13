@@ -40,6 +40,10 @@
     <div class="wrapper">
         <div class="right-column">
             <?php
+            if(empty($_GET['id'])){
+                header("Location: beyondExpectations.php");
+                exit();
+            }
             //ログイン状態
             session_start();
             session_regenerate_id(true);
@@ -84,6 +88,8 @@
                                 </ul>
                             </nav>
                         </div>
+                        <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
+                        </br>
                         <?php
                         //URLパラメータからid取得
                         $id = htmlspecialchars($_GET['id']);

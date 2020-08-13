@@ -68,10 +68,10 @@
                             </nav>
                         </div>
                         <div class="error">
-                            <p><a href="loginInfo.php" class="btn-flat-BackAll">ログインする</a></p>
+                            <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
                             </br>
                             <img src="siteimages/error.jpg" width="150" height="128" alt="ログイン失敗"></br></br>
-                            <div class="text-center">ログインしていません。</div></br>
+                            <div class="text-center">想定外の遷移です。</div></br>
                         </div>
                         </br>
                     </div>

@@ -10,6 +10,8 @@
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/table.css" rel="stylesheet">
+    <link href="css/posCenter.css" rel="stylesheet">
     <title>閲覧拒否</title>
 </head>
 
@@ -66,9 +68,10 @@
                             </nav>
                         </div>
                         <div class="error">
+                            <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
+                            </br>
                             <img src="siteimages/error.jpg" width="150" height="128" alt="ログイン失敗"></br></br>
-                            <p>パスワードが一致しません。</p></br>
-                            <a href="javascript:history.back();" class="btn2 btn-c btn--blue btn--cubic">戻る</a>
+                            <div class="text-center">パスワードが一致しません。</div></br>
                         </div>
                         </br>
                     </div>

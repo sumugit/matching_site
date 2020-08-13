@@ -1,5 +1,4 @@
 <?php
-//配列の要素が定義されているか
     //画像ファイルの情報
     $tempfile = $_FILES['myImage']['tmp_name'];
     $filename = './image/' . $_FILES['myImage']['name'];

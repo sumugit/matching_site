@@ -84,7 +84,6 @@
                                 </ul>
                             </nav>
                         </div>
-                        <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
                         </br>
                         <br>
                         <hr color="#00bfff">
@@ -122,7 +121,7 @@
                                                         $flag = true;
                                                         //URLパラメータ生成
                                                         print '<a href="bulletin.php?index=' . $content[0] . '"><div class="item"><img src = ' . $profile[1] . ' align="left" width="128" height="128" alt=""><p>　' . $content[2] . ' </p><p id="big">　' . $content[3] . ' </p><hr  style="border:1px dashed #000000;"><p>　' . $profile[3] . ' </p><p>　' . $profile[4] . ' ' . $profile[5] . ' </p></div></a>';
-                                                        print '<a href="./userPlofile.php?id=' . $profile[0] . '" class="Bulletinbtn Bulletinbtn--blue Bulletinbtn--cubic">プロフィール確認</a>';
+                                                        print '<a href="./userProfile.php?id=' . $profile[0] . '" class="Bulletinbtn Bulletinbtn--blue Bulletinbtn--cubic">プロフィール確認</a>';
                                                         break;
                                                     }
                                                 }
@@ -140,7 +139,7 @@
                                     flock($fp1, LOCK_UN);
                                     fclose($fp1);
                                     if ($flag == false) {
-                                        print "誰も掲示板を投稿していません。<br><br>";
+                                        print "誰も掲示板を投稿していません。<br>";
                                     }
                                 } else {
                                     header("Location: fileError.php");

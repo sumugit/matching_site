@@ -30,12 +30,18 @@
                             session_start();
                             session_regenerate_id(true);
                             $_SESSION['login'] = 1;
+                            //ユーザーのid
+                            $_SESSION['id'] = $content[0];
                             //ユーザーのニックネーム
                             $_SESSION['nickname'] = $content[1];
                             //ユーザーの性別
                             $_SESSION['sex'] = $content[2];
-                            //ユーザーのid
-                            $_SESSION['id'] = $content[0];
+                            //ユーザーのemail
+                            $_SESSION['email'] = $content[3];
+                            //ユーザーのパスワード
+                            $_SESSION['pass'] = $content[4];
+                            //ユーザーの指名
+                            $_SESSION['name'] = $content[5];
                             header("HTTP/1.1 301 Moved Permanetly");
                             header("Location: $dest");
                             exit;

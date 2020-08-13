@@ -2,17 +2,19 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
-    <title>プロフィール</title>
-    <script src="js/node_modules/chart.js/dist/Chart.min.js"></script>
+    <link href="css/button.css" rel="stylesheet">
+    <title>プロフィール閲覧</title>
 </head>
 
 <body background="siteimages/b094.jpg">
@@ -38,6 +40,10 @@
     <div class="wrapper">
         <div class="right-column">
             <?php
+            if(empty($_GET['id'])){
+                header("Location: beyondExpectations.php");
+                exit();
+            }
             //ログイン状態
             session_start();
             session_regenerate_id(true);
@@ -82,7 +88,12 @@
                                 </ul>
                             </nav>
                         </div>
+                        <p><a href="search.php" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>検索画面に戻る</a></p>
+                        </br>
                         <?php
+                        //URLパラメータからid取得
+                        $id = htmlspecialchars($_GET['id']);
+                        //いいねボタンに用いる
                         if (is_file("./csv/profile.csv")) { //登録ファイルが存在するか
                             if (is_readable("./csv/profile.csv")) { //登録ファイルを読み込めるか
                                 $fp = fopen("./csv/profile.csv", "r");
@@ -90,8 +101,46 @@
                                 //idが登録ユーザーと一致するまで一行ずつ取り出す
                                 while (!feof($fp)) {
                                     $content = fgetcsv($fp);
-                                    //ログインしているユーザーの情報を取得
-                                    if ($content[0] == $_SESSION['id']) {
+                                    //閲覧しているユーザーの情報を取得
+                                    if ($content[0] == $id) {
+                                        //足跡の記録
+                                        if (is_file("./csv/footPrint.csv")) { //ファイルが存在するか
+                                            if (is_readable("./csv/footPrint.csv")) { //ファイルを読み込めるか
+                                                $fp3 = fopen("./csv/footPrint.csv", "r");
+                                                flock($fp3, LOCK_SH);
+                                                $flagTrace = false;
+                                                //idが登録ユーザーと一致するまで一行ずつ取り出す
+                                                while (!feof($fp3)) {
+                                                    $trace = fgetcsv($fp3);
+                                                    //もし以前に足跡をそのアカウントに押していたら
+                                                    if ($trace[0] == $_SESSION['id'] && $trace[1] == $id) {
+                                                        $flagTrace = true;
+                                                        break;
+                                                    }
+                                                }
+                                                //ファイルを閉じる
+                                                flock($fp3, LOCK_UN);
+                                                fclose($fp3);
+                                                //そのアカウントにまだ足跡を付けたことが無い
+                                                if ($flagTrace == false) {
+                                                    $fp3 = fopen("./csv/footPrint.csv", "a+");
+                                                    //ファイルの排他ロック
+                                                    flock($fp3, LOCK_EX);
+                                                    //ファイルに書き込み
+                                                    fputcsv($fp3, array($_SESSION['id'], $id));
+                                                    //ロック解除
+                                                    flock($fp3, LOCK_UN);
+                                                    fclose($fp3);
+                                                }
+                                            } else {
+                                                header("Location: fileError.php");
+                                                exit();
+                                            }
+                                        } else {
+                                            header("Location: fileError.php");
+                                            exit();
+                                        }
+                                        //ループを抜ける
                                         break;
                                     }
                                 }
@@ -107,100 +156,62 @@
                             exit();
                         }
                         ?>
-                        <!--画像の挿入-->
-                        <?php
-                        print '<p><a href="myPage.php" class="btn-flat-simpleBack"><i class="fa fa-chevron-left"></i>マイページ</a>';
-                        print '<a href="profEdit.php" class="btn-flat-simple">編集</a></p>';
-                        print '<br>';
-                        $count = 0;
-                        for ($i = 4; $i < count($content); $i++) {
-                            if (strcmp($content[$i], '指定しない') != 0 && strcmp($content[$i], 'ヒミツ') != 0) {
-                                $count++;
-                            }
-                        }
-                        //プロフの項目数
-                        $sum = 20;
-                        ?>
-                        <!--円グラフ-->
-                        <canvas id="chart-area" width="200" height="150" class="chart"></canvas>
-                        <script>
-                            (function() {
-                                var blue = 'rgb(54, 162, 235)';
-                                var gray = 'rgb(99, 99, 99)';
-
-                                var data = {
-                                    datasets: [{
-                                        data: [<?php echo ($count / $sum) * 100 ?>,
-                                            <?php echo (($sum - $count) / $sum) * 100 ?>,
-                                        ],
-                                        backgroundColor: [blue, gray],
-                                    }],
-                                };
-
-                                // グラフオプション
-                                var options = {
-                                    // グラフの太さ（中央部分を何％切り取るか）
-                                    cutoutPercentage: 65,
-                                    // 凡例を表示しない
-                                    legend: {
-                                        display: false
-                                    },
-                                    // 自動サイズ変更をしない
-                                    responsive: false,
-                                    // タイトル
-                                    title: {
-                                        display: true,
-                                        fontSize: 16,
-                                        text: 'プロフ充実度',
-                                    },
-                                    // マウスオーバー時に情報を表示しない
-                                    tooltips: {
-                                        enabled: false
-                                    },
-                                };
-
-                                // グラフ描画
-                                var ctx = document.getElementById('chart-area').getContext('2d');
-                                new Chart(ctx, {
-                                    type: 'doughnut',
-                                    data: data,
-                                    options: options
+                        <!-- jQueryのAjaxでPOST送信してPHPで受け取る-->
+                        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+                        <script type="text/javascript">
+                            //いいねボタンが押された場合
+                            function good() {
+                                var obj = document.getElementById('good');
+                                obj.style.color = '#ffffff'; //文字色を白にする
+                                obj.style.backgroundColor = '#DEC031'; //背景色を黄色にする
+                                // 入力されたID値を取得
+                                $(function() {
+                                    //Ajax通信(いいね押して別のページに遷移するのは不便だから)
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "addGood.php",
+                                        data: {
+                                            "mine": <?php echo $_SESSION['id']; ?>,
+                                            "opponent": <?php echo $id; ?>
+                                        },
+                                        dataType: "json"
+                                    }).done(function(data) {
+                                        $("#res").text(data.mine + ' : ' + data.opponent);
+                                    }).fail(function(XMLHttpRequest, textStatus, error) {
+                                        alert(error);
+                                    });
                                 });
-                            })();
-
-                            var chartJsPluginCenterLabel = {
-                                afterDatasetsDraw: function(chart) {
-                                    // ラベルの X 座標と Y 座標
-                                    var canvas = chart.ctx.canvas;
-                                    var labelX = canvas.clientWidth / 2;
-                                    var labelY = Math.round((canvas.clientHeight + chart.chartArea.top) / 2);
-                                    // ラベルの値
-                                    var value = chart.data.datasets[0].data[0] + '%';
-                                    // ラベル描画
-                                    var ctx = this.setTextStyle(chart.ctx);
-                                    ctx.fillText(value, labelX, labelY);
-                                },
-
-                                /**
-                                 * 書式設定
-                                 */
-                                setTextStyle: function(ctx) {
-                                    var fontSize = 30;
-                                    var fontStyle = 'normal';
-                                    var fontFamily = '"Helvetica Neue", Helvetica, Arial, sans-serif';
-                                    ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
-                                    ctx.fillStyle = '#636363';
-                                    ctx.textAlign = 'center';
-                                    ctx.textBaseline = 'middle';
-
-                                    return ctx;
-                                }
-                            };
-                            // 上記プラグインの有効化
-                            Chart.plugins.register(chartJsPluginCenterLabel);
+                            }
+                            //タイプボタンが押された場合
+                            function love() {
+                                var obj = document.getElementById('love');
+                                obj.style.color = '#ffffff'; //文字色を白にする
+                                obj.style.backgroundColor = '#FE7F9C'; //背景色を黄色にする
+                                // 入力されたID値を取得
+                                $(function() {
+                                    //Ajax通信(いいね押して別のページに遷移するのは不便だから)
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "addLove.php",
+                                        data: {
+                                            "mine": <?php echo $_SESSION['id']; ?>,
+                                            "opponent": <?php echo $id; ?>
+                                        },
+                                        dataType: "json"
+                                    }).done(function(data) {
+                                        $("#res").text(data.mine + ' : ' + data.opponent);
+                                    }).fail(function(XMLHttpRequest, textStatus, error) {
+                                        alert(error);
+                                    });
+                                });
+                            }
                         </script>
-                        <!--円グラフ終わり-->
+                        </br>
+                        <input type="button" id="good" value="いいね！" class="btn-pushGood" onclick="good();">
+                        <input type="button" id="love" value="タイプ！" class="btn-pushLove" onclick="love();"><br><br>
+                        <?php print '<a href=\'chat.php?id=' . $id . '\' class="btn btn--blue btn--cubic"><i class="fa fas fa-envelope"></i>メッセージを送る</a>'; ?>
                         <table>
+                            <!--画像の挿入-->
                             <?php print "<tr><td colspan=\"2\">" . '<div class="center"><img border="0" src="' . $content[1] . '" width="500" height="500" alt="プロフィール画像"></div>' . "</td></tr>"; ?>
                             <?php print "<th colspan=\"2\">自己紹介</th>"; ?>
                             <?php print "<tr><td colspan=\"2\">" . $content[2] . "</td></tr>"; ?>

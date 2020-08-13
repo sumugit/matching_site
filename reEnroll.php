@@ -12,6 +12,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
     <link href="css/box.css" rel="stylesheet">
+    <link href="css/posCenter.css" rel="stylesheet">
     <title>編集完了</title>
 </head>
 
@@ -104,7 +105,7 @@
                                 if ($pass1 != $pass2) {
                                     print '<p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>';
                                     print  '<br>';
-                                    print 'パスワードが一致しません。<br>';
+                                    print '<div class="text-center">パスワードが一致しません。</div><br>';
                                     $isCorrect = false;
                                 }
                                 if ($isCorrect == true) {
@@ -136,11 +137,20 @@
                                     //ロック解除
                                     flock($fp, LOCK_UN);
                                     fclose($fp);
+                                    $_SESSION['sex'] = $sex;
+                                    $_SESSION['email'] = $email;
+                                    $_SESSION['pass'] = $pass1;
+                                    $_SESSION['name'] = $name;
                                 }
                             }
                         }
                         ?>
                         <?php if (!empty($_POST["name"]) && $isCorrect == true) : ?>
+                            <?php
+                            print '<p><a href="./usersEdit.php" class="btn-flat-simpleBack"><i class="fa fa-chevron-left"></i>編集に戻る</a>';
+                            print '<a href="./loginInfo.php" class="btn-flat-simple">アカウント情報</a></p>';
+                            print '<br>';
+                            ?>
                             <div class="box30">
                                 <div class="box-title">プロフィール編集完了！</div>
                                 <p>
@@ -150,16 +160,12 @@
                                     メールアドレス: <?php echo $email ?>
                                 </p>
                             </div>
-                            <p>
-                                <div class="containerbox"><a href="./loginInfo.php" class="btn-push" target="_self">アカウント情報</a><br></div>
-                                <div class="containerbox"><a href="./usersEdit.php" class="btn-push" target="_self">編集に戻る</a></div>
-                            </p>
                             <br>
                             <br>
                         <?php endif; ?>
                         <?php if (($isCorrect == true) && empty($_POST["name"])) : ?>
-                            <p>編集内容に不備があるようです。<br>再度登録内容を編集し直してください。</p>
                             <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
+                            <div class="text-center"><p>編集内容に不備があるようです。<br>再度登録内容を編集し直してください。</p></div>
                         <?php endif; ?>
                     </div>
                 </div>

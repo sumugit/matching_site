@@ -84,7 +84,6 @@
                                 </ul>
                             </nav>
                         </div>
-                        <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
                         </br>
                         <div class="container">
                             <?php
@@ -110,7 +109,7 @@
                                                         if ($content[1] == $profile[0]) {
                                                             //URLパラメータ生成
                                                             print '<a href="chat.php?id=' . $profile[0] . '"><div class="item"><img src = ' . $profile[1] . ' align="left" width="128" height="128" alt=""><p>　' . $profile[4] . ' ' . $profile[5] . ' </p><p id="big">　' . $profile[3] . ' </p><hr  style="border:1px dashed #000000;"><p>　' . $profile[2] . ' </p></div></a>';
-                                                            print '<a href="./userPlofile.php?id=' . $profile[0] . '" class="Bulletinbtn Bulletinbtn--blue Bulletinbtn--cubic">プロフィール確認</a>';
+                                                            print '<a href="./userProfile.php?id=' . $profile[0] . '" class="Bulletinbtn Bulletinbtn--blue Bulletinbtn--cubic">プロフィール確認</a>';
                                                             break;
                                                         }
                                                     }

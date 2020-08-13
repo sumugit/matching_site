@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
-    <link href="css/myPageStyle3.css" rel="stylesheet">
+    <link href="css/myPageStyle.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
