@@ -91,7 +91,7 @@
                             </a>
                             <a href="./loginInfo.php">
                                 <div class="item">
-                                    <p>登録情報</p><br><img src="./siteimages/user.jpg" width="120" height="120" alt="アイコン">
+                                    <p>登録情報</p><br><img src="./siteimages/user.png" width="120" height="120" alt="アイコン">
                                 </div>
                             </a>
                             <a href="./confirmFootPrint.php">
@@ -101,7 +101,7 @@
                             </a>
                             <a href="./confirmGood.php">
                                 <div class="item">
-                                    <p>あなたへのいいね</p></br><img src="./siteimages/good.jpg" width="120" height="120" alt="アイコン">
+                                    <p>あなたへのいいね</p></br><img src="./siteimages/good.png" width="120" height="120" alt="アイコン">
                                 </div>
                             </a>
                             <a href="./confirmLove.php">
@@ -111,12 +111,12 @@
                             </a>
                             <a href="./confirmMyGood.php">
                                 <div class="item">
-                                    <p>いいねした相手</p></br><img src="./siteimages/putGood.jpg" width="156" height="120" alt="アイコン">
+                                    <p>いいねした相手</p></br><img src="./siteimages/putGood.png" width="156" height="120" alt="アイコン">
                                 </div>
                             </a>
                             <a href="./confirmMyLove.php">
                                 <div class="item">
-                                    <p>タイプした相手</p></br><img src="./siteimages/putLove.jpg" width="156" height="120" alt="アイコン">
+                                    <p>タイプした相手</p></br><img src="./siteimages/putLove.png" width="156" height="120" alt="アイコン">
                                 </div>
                             </a>
                             <a href="./info.php">

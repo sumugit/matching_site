@@ -70,7 +70,7 @@
                         <div class="error">
                             <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
                             </br>
-                            <img src="siteimages/error.jpg" width="150" height="128" alt="ログイン失敗"></br></br>
+                            <img src="siteimages/error.png" width="150" height="128" alt="ログイン失敗"></br></br>
                             <div class="text-center">想定外の遷移です。</div></br>
                         </div>
                         </br>
