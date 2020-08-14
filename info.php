@@ -67,7 +67,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
+                        <p><a href="myPage.php" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>マイページ</a></p>
                         </br></br>
                         <div class="box30">
                             <div class="box-title">お知らせ</div>

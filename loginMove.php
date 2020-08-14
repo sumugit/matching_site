@@ -68,9 +68,9 @@
                             </nav>
                         </div>
                         <div class="error">
-                            <p><a href="loginInfo.php" class="btn-flat-BackAll">ログインする</a></p>
+                            <p><a href="login.php" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>ログインする</a></p>
                             </br>
-                            <img src="siteimages/error.jpg" width="150" height="128" alt="ログイン失敗"></br></br>
+                            <img src="siteimages/error.png" width="150" height="128" alt="ログイン失敗"></br></br>
                             <div class="text-center">ログインしていません。</div></br>
                         </div>
                         </br>

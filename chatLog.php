@@ -85,12 +85,12 @@ if ($mode == "0") {
         //もし以前にやり取りがあれば,新たなメッセージを追加する
         for ($i = 0; $i < count($array)-1; $i++) {
             //編集した情報を更新(ユニークなidが一致すればよい)
-            if ($array[$i][0] == $mine) {
+            if ($array[$i][0] == $mine && $array[$i][1] == $opponent) {
                 $flag = true;
                 //メッセージ追加(文字列の連結)(自分側)
                 $array[$i][2] = $array[$i][2] . $inputValueMine;
             }
-            else if ($array[$i][0] == $opponent) {
+            else if ($array[$i][0] == $opponent && $array[$i][1] == $mine) {
                 $flag = true;
                 //メッセージ追加(文字列の連結)(相手側)
                 $array[$i][2] = $array[$i][2] . $inputValueOpponent;

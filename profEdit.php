@@ -513,7 +513,7 @@
                                             <div class="cp_ipselect cp_sl01">
                                                 <select name="brother">
                                                     <option value="指定しない" <?= $content[20] == '指定しない' ? 'selected' : "" ?>>指定しない</option>
-                                                    <option value="長男" <?= $content[20] == '長男' ? 'selected' : "" ?>>長男</option>
+                                                    <option value="長男/長女" <?= $content[20] == '長男/長女' ? 'selected' : "" ?>>長男/長女</option>
                                                     <option value="間っ子" <?= $content[20] == '間っ子' ? 'selected' : "" ?>>間っ子</option>
                                                     <option value="末っ子" <?= $content[20] == '末っ子' ? 'selected' : "" ?>>末っ子</option>
                                                     <option value="一人っ子" <?= $content[20] == '一人っ子' ? 'selected' : "" ?>>一人っ子</option>

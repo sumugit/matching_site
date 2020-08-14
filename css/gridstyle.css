@@ -22,3 +22,9 @@
 .item:hover {
     background-color: #fff0ff;
 }
+
+/* テキストが枠を超えたとき */
+.textOverflowTest3 {
+	overflow: hidden;
+	height: 45px;
+}
