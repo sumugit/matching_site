@@ -202,6 +202,7 @@
                         <!--円グラフ終わり-->
                         <table>
                             <?php print "<tr><td colspan=\"2\">" . '<div class="center"><img border="0" src="' . $content[1] . '" width="500" height="500" alt="プロフィール画像"></div>' . "</td></tr>"; ?>
+                            <?php print "<tr><td colspan=\"2\"><a href='profileImage.php'>プロフィール画像編集</a></td></tr>";?>
                             <?php print "<th colspan=\"2\">自己紹介</th>"; ?>
                             <?php print "<tr><td colspan=\"2\">" . $content[2] . "</td></tr>"; ?>
                             <?php print "<th colspan=\"2\">基本情報</th>"; ?>

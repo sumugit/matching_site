@@ -99,7 +99,9 @@
                                 }
                             } else {
                                 //男性か女性かで分けるようにしたい
+                                if(strcmp($_SESSION['sex'], "男性") == 0)
                                 $filename = './image/unknown.jpg';
+                                else $filename = './image/unknown_w.png';
                                 //echo "<div class='text-center'>ファイルが選択されていません。</div>";
                             }
 
@@ -107,7 +109,7 @@
                             if (strlen($_POST["nickname"]) != 0) {
                                 $myimage = htmlspecialchars($filename);
                                 //画像名に,があれば_に変える(これだと画像を参照できない)
-                                $myimage = preg_replace("/,/", "_", $myimage);
+                                //$myimage = preg_replace("/,/", "_", $myimage);
                                 $message = htmlspecialchars($_POST["message"]);
                                 //,は半角空白にする
                                 $message = preg_replace("/,/", "、", $message);
@@ -142,7 +144,7 @@
                                 //ファイルの排他ロック
                                 flock($fp, LOCK_EX);
                                 //出力データ生成
-                                $output = join(",", array($_SESSION['id'], $myimage, $message, $nickname, $old, $pref_name_live, $pref_name_from, $bloodtype, $sign, $height, $style, $looks, $job, $income, $marriage, $child, $cigarette, $alcohol, $car, $people, $brother, $meet, $cost)) . "\n";
+                                //$output = join(",", array($_SESSION['id'], $myimage, $message, $nickname, $old, $pref_name_live, $pref_name_from, $bloodtype, $sign, $height, $style, $looks, $job, $income, $marriage, $child, $cigarette, $alcohol, $car, $people, $brother, $meet, $cost)) . "\n";
 
                                 //プロフィールファイルの一部を書き換えるため,
                                 //一旦csvの中身を全て配列に保存し, ファイルの中を空にする
@@ -154,7 +156,11 @@
                                 //配列の先頭から格納
                                 for ($i = 0; $i < count($array); $i++) {
                                     //編集した情報を更新(ユニークなidが一致すればよい)
-                                    if ($array[$i][0] == $_SESSION['id']) {
+                                    //コンマ区切りで配列に渡す
+                                    $separete = explode(",", $array[$i]);
+                                    if ($separete[0] == $_SESSION['id']) {
+                                        //出力データ生成
+                                        $output = join(",", array($_SESSION['id'], $separete[1], $message, $nickname, $old, $pref_name_live, $pref_name_from, $bloodtype, $sign, $height, $style, $looks, $job, $income, $marriage, $child, $cigarette, $alcohol, $car, $people, $brother, $meet, $cost)) . "\n";
                                         $array[$i] = $output;
                                     }
                                     //ファイルに書き込み
@@ -182,7 +188,8 @@
                                 //配列の先頭から格納
                                 for ($i = 0; $i < count($array); $i++) {
                                     //編集した情報を更新(ユニークなidが一致すればよい)
-                                    if ($array[$i][0] == $_SESSION['id']) {
+                                    $separete = explode(",", $array[$i]);
+                                    if ($separete[0] == $_SESSION['id']) {
                                         $array[$i] = $output;
                                     }
                                     //ファイルに書き込み
@@ -192,6 +199,7 @@
                                 flock($fp, LOCK_UN);
                                 fclose($fp);
                             }
+                            else print 'ニックネームを記入してください。';
                         }
                         ?>
                         <?php if (!empty($_POST["nickname"]) && strlen($_POST["nickname"]) != 0 && !empty($nickname) && !empty($_POST["old"])) : ?>
@@ -207,6 +215,7 @@
                                     年齢: <?php echo $old ?><br>
                                     居住地: <?php echo $pref_name_live ?><br>
                                     出身地: <?php echo $pref_name_from ?><br>
+                                    血液型: <?php echo $bloodtype ?><br>
                                     星座: <?php echo $sign ?><br>
                                     身長: <?php echo $height ?><br>
                                     スタイル: <?php echo $style ?><br>
