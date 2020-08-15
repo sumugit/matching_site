@@ -15,6 +15,7 @@
     <link href="css/gridstyle.css" rel="stylesheet">
     <link href="css/buttonSearch.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
+    <link href="css/posCenter.css" rel="stylesheet">
     <title>検索結果</title>
 </head>
 
@@ -111,6 +112,7 @@
                                 //配列にした方が後で処理で楽
                                 $array = array($old, $pref_name_live, $pref_name_from, $sign, $height, $style, $job, $income, $marriage, $child, $cigarette, $alcohol, $car, $people, $brother, $meet, $cost);
                                 //他の異性ユーザーの顔写真を一つずつ載せる
+                                $count = 0;
                                 if (is_file("./csv/profile.csv") && is_file("./csv/users.csv")) { //登録ファイルが存在するか
                                     if (is_readable("./csv/profile.csv") && is_readable("./csv/users.csv")) { //登録ファイルを読み込めるか
                                         $fp1 = fopen("./csv/profile.csv", "r"); //プロフ情報
@@ -134,7 +136,8 @@
                                                 //一致するユーザーを表示
                                                 if ($i == 17) {
                                                     //URLパラメータ生成
-                                                    print '<a href="userProfileSearch.php?id=' . $content[0] . '"><div class="item"><img src = ' . $content[1] . ' width="128" height="128" alt=""><p><b>' . $content[5] . '　' . $content[4] . '</b></p><p>' . $content[2] . '</p></div></a>';
+                                                    print '<a href="userProfileSearch.php?id=' . $content[0] . '"><div class="item"><img src = ' . $content[1] . ' width="128" height="128" class="userImage" alt=""><p><b>' . $content[5] . '　' . $content[4] . '</b></p><p>' . $content[2] . '</p></div></a>';
+                                                    $count++;
                                                 }
                                             }
                                         }
@@ -154,6 +157,7 @@
                             }
                             ?>
                         </div>
+                        <?php if ($count == 0) print '<p class="text-center">条件に一致するユーザーはいませんでした。</p>'; ?>
                     </div>
                 </div>
             </div>

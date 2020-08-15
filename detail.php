@@ -482,10 +482,4 @@
     </div>
 </body>
 
-<div class="footer-wrapper">
-    <footer>
-        <p><small>&copy; マッチングナビ 2020</small></p>
-    </footer>
-</div>
-
 </html>

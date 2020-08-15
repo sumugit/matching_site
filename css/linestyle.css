@@ -1,7 +1,5 @@
 @charset "UTF-8";
 
-.container {
-}
 .item {
     height: 148px;
     background: #ffffff;
@@ -14,4 +12,10 @@
 .item:hover {
     background-color: #F6F7F8;
 }
+
+/*画像を丸くする*/
+.userImage {
+    border-radius: 50%;
+}
+
 

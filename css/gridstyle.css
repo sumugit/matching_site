@@ -15,16 +15,22 @@
     text-align: center;
     min-height: 230px;
     max-height: 230px;
-    background: #ffffff;
+    background: #EFEFEF;
     padding: 10px;
+    border-radius: 50%;
 }
 
 .item:hover {
-    background-color: #fff0ff;
+    background-color: #DCDDDD;
 }
 
 /* テキストが枠を超えたとき */
 .textOverflowTest3 {
 	overflow: hidden;
 	height: 45px;
+}
+
+/*画像を丸くする*/
+.userImage {
+    border-radius: 50%;
 }

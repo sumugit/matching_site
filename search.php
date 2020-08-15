@@ -105,7 +105,7 @@
                                             //同性のユーザーは無視
                                             if (strcmp($user[2], $_SESSION['sex']) != 0 && $user[2] != "") {
                                                 //URLパラメータ生成
-                                                print '<a href="userProfile.php?id=' . $content[0] . '"><div class="item"><img src = ' . $content[1] . ' width="128" height="128" alt=""><p><b>' . $content[5] . '　' . $content[4] . '</b></p><p class="textOverflowTest4">' . $content[2] . '</p></div></a>';
+                                                print '<a href="userProfile.php?id=' . $content[0] . '"><div class="item"><img src = ' . $content[1] . ' width="128" height="128" class="userImage" alt=""><p><b>' . $content[5] . '　' . $content[4] . '</b></p><p class="textOverflowTest3">' . $content[2] . '</p></div></a>';
                                             }
                                         }
                                     }

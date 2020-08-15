@@ -120,7 +120,7 @@
                                                     if ($content[1] == $profile[0] && !empty($content[1])) {
                                                         $flag = true;
                                                         //URLパラメータ生成
-                                                        print '<a href="bulletin.php?index=' . $content[0] . '"><div class="item"><img src = ' . $profile[1] . ' align="left" width="128" height="128" alt=""><p>　' . $content[2] . ' </p><p id="big">　' . $content[3] . ' </p><hr  style="border:1px dashed #000000;"><p>　' . $profile[3] . ' </p><p>　' . $profile[4] . ' ' . $profile[5] . ' </p></div></a>';
+                                                        print '<a href="bulletin.php?index=' . $content[0] . '"><div class="item"><img src = ' . $profile[1] . ' align="left" width="128" height="128" class="userImage" alt=""><p>　' . $content[2] . ' </p><p id="big">　' . $content[3] . ' </p><hr  style="border:1px dashed #000000;"><p>　' . $profile[3] . ' </p><p>　' . $profile[4] . ' ' . $profile[5] . ' </p></div></a>';
                                                         print '<a href="./userProfile.php?id=' . $profile[0] . '" class="Bulletinbtn Bulletinbtn--blue Bulletinbtn--cubic">プロフィール確認</a>';
                                                         break;
                                                     }
