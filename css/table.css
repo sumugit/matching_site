@@ -264,3 +264,7 @@ a.btn-c i.fa {
     position: relative;
     left: 420px;
   }
+
+.line {
+  white-space: pre-wrap;
+}

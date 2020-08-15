@@ -121,10 +121,10 @@
                         <br><br><br>
                         <form method="POST" action="./complete.php" enctype=multipart/form-data> <!--画像ファイルの入力-->
                             <table>
-                                <!--テキスト入力-->
+                                <!--テキスト入力(<br>は\nにする)-->
                                 <th colspan="2">自己紹介</th>
                                 <tr>
-                                    <td colspan="2"><textarea name="message" rows="4" cols="60" maxlength="150"><?php echo $content[2] ?></textarea></td>
+                                    <td colspan="2"><textarea name="message" rows="4" cols="60" maxlength="150" class="line"><?php echo preg_replace('/<br[[:space:]]*\/?[[:space:]]*>/i', "", $content[2]);?></textarea></td>
                                 </tr>
                                 <th colspan="2">基本情報</th>
                                 <tr>

@@ -1,17 +1,18 @@
-<!DOCTYPE heml>
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
-    <meta http-equiv="content-type" charset="utf-8">
-    <!--CSS-->
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="siteimages/matchingNav.png">
-    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/input.css" rel="stylesheet">
-    <title>会員登録</title>
+    <link href="css/table.css" rel="stylesheet">
+    <link href="css/posCenter.css" rel="stylesheet">
+    <title>閲覧拒否</title>
 </head>
 
 <body background="siteimages/b094.jpg">
@@ -36,19 +37,6 @@
     </div>
     <div class="wrapper">
         <div class="right-column">
-            <?php
-            //ログイン状態
-            session_start();
-            session_regenerate_id(true);
-            //変数がセットされているか
-            if (isset($_SESSION['login']) == false) {
-                print '<p id="login">新規会員登録';
-                print '<br><p>';
-            } else {
-                header("Location: alreadyLogined.php");
-                exit();
-            }
-            ?>
             <header>
                 <div class="top-header">
                     <nav>
@@ -79,33 +67,13 @@
                                 </ul>
                             </nav>
                         </div>
-                        <div class="form-wrapper">
-                            <h1>新規会員登録</h1>
-                            <form method="POST" action="./enroll.php" enctype=multipart/form-data> <br>
-                                <div class="form-item">
-                                    <input type="text" name="name" placeholder="氏名" required><br>
-                                </div>
-                                性別<br>
-                                <input type="radio" name="sex" value="男性" required>男性
-                                <input type="radio" name="sex" value="女性">女性<br>
-                                <div class="form-item">
-                                    <input type="text" name="nickname" placeholder="ニックネーム" required><br>
-                                </div>
-                                <div class="form-item">
-                                    <input type="email" name="email" placeholder="メールアドレス" required><br>
-                                </div>
-                                <div class="form-item">
-                                    <input type="password" name="pass1" pattern="[0-9a-zA-Z]+$" placeholder="パスワード" required><br>
-                                </div>
-                                <div class="form-item">
-                                    <input type="password" name="pass2" placeholder="確認用" required><br>
-                                </div>
-                                <div class="button-panel">
-                                    <input type="submit" class="submitButton" value="登録確認">
-                                </div>
-                                <div class="form-footer"></div>
-                            </form>
+                        <div class="error">
+                            <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
+                            </br>
+                            <img src="siteimages/error.png" width="150" height="128" alt="ログイン失敗"></br></br>
+                            <div class="text-center">すでにログイン済みです。</div></br>
                         </div>
+                        </br>
                     </div>
                 </div>
             </div>

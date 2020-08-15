@@ -46,10 +46,8 @@
                 print '<p id="login">ログイン';
                 print '<br><p>';
             } else {
-                print '<p id ="login">';
-                print $_SESSION['nickname'] . '様-';
-                print '<a href="logout.php"><b>ログアウト</b></a>';
-                print '<br><p>';
+                header("Location: alreadyLogined.php");
+                exit();
             }
             ?>
             <header>
