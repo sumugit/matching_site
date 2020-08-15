@@ -114,6 +114,26 @@ textarea:focus {
   color: #d3d3d3;
 }
 
+.btn-flat {
+  display: table-cell;
+  width: 100%;
+  font-size: x-large;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #808080;
+  background: #d3d3d3;
+  transition: .4s;
+}
+
+.btn-flat:hover {
+  background: #808080;
+  color: #d3d3d3;
+}
+
 
 /*ボタン*/
 .btn,

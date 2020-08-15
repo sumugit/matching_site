@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
     <meta charset="utf-8">
@@ -86,30 +86,8 @@
                         <?php
                         //配列の要素が定義されているか
                         if (!empty($_POST["nickname"]) && !empty($_POST["old"])) {
-                            //画像ファイルの情報
-                            $tempfile = $_FILES['myImage']['tmp_name'];
-                            $filename = './image/' . $_FILES['myImage']['name'];
-
-                            //画像ファイルが本当にアップロードされたか
-                            if (is_uploaded_file($tempfile)) {
-                                if (move_uploaded_file($tempfile, $filename)) {
-                                    //echo "<div class='text-center'>" . $filename . "をアップロードしました。</div>";
-                                } else {
-                                    //echo "<div class='text-center'>ファイルをアップロードできません。</div>";
-                                }
-                            } else {
-                                //男性か女性かで分けるようにしたい
-                                if(strcmp($_SESSION['sex'], "男性") == 0)
-                                $filename = './image/unknown.jpg';
-                                else $filename = './image/unknown_w.png';
-                                //echo "<div class='text-center'>ファイルが選択されていません。</div>";
-                            }
-
                             //入力データの書き込み
                             if (strlen($_POST["nickname"]) != 0) {
-                                $myimage = htmlspecialchars($filename);
-                                //画像名に,があれば_に変える(これだと画像を参照できない)
-                                //$myimage = preg_replace("/,/", "_", $myimage);
                                 $message = htmlspecialchars($_POST["message"]);
                                 //,は半角空白にする
                                 $message = preg_replace("/,/", "、", $message);
@@ -143,9 +121,6 @@
                                 $fp = fopen("./csv/profile.csv", "a+");
                                 //ファイルの排他ロック
                                 flock($fp, LOCK_EX);
-                                //出力データ生成
-                                //$output = join(",", array($_SESSION['id'], $myimage, $message, $nickname, $old, $pref_name_live, $pref_name_from, $bloodtype, $sign, $height, $style, $looks, $job, $income, $marriage, $child, $cigarette, $alcohol, $car, $people, $brother, $meet, $cost)) . "\n";
-
                                 //プロフィールファイルの一部を書き換えるため,
                                 //一旦csvの中身を全て配列に保存し, ファイルの中を空にする
                                 $array = array();
@@ -169,6 +144,7 @@
                                 //ロック解除
                                 flock($fp, LOCK_UN);
                                 fclose($fp);
+                                //ニックネーム更新
                                 $_SESSION['nickname'] = $nickname;
 
                                 //ユーザーファイルへ書き込み
@@ -209,7 +185,6 @@
                             <div class="box30">
                                 <div class="box-title">プロフィール編集完了！</div>
                                 <p>
-                                    画像: <?php echo $myimage ?><br>
                                     自己紹介: <?php echo $message ?><br>
                                     ニックネーム: <?php echo $nickname ?><br>
                                     年齢: <?php echo $old ?><br>

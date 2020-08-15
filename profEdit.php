@@ -121,18 +121,6 @@
                         <br><br><br>
                         <form method="POST" action="./complete.php" enctype=multipart/form-data> <!--画像ファイルの入力-->
                             <table>
-                                <th colspan="2">自分の写真</th>
-                                <div class="poscenter">
-                                    <tr>
-                                        <td colspan="2"><input type="file" name="myImage" accept='image/*' onchange="previewImage(this);">
-                                            <p>
-                                                Preview:<br>
-                                                <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
-                                            </p>
-
-                                        </td>
-                                    </tr>
-                                </div>
                                 <!--テキスト入力-->
                                 <th colspan="2">自己紹介</th>
                                 <tr>

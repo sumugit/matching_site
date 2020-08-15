@@ -11,7 +11,17 @@
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
     <title>プロフィール画像</title>
+    <script>
+        function previewImage(obj) {
+            var fileReader = new FileReader();
+            fileReader.onload = (function() {
+                document.getElementById('preview').src = fileReader.result;
+            });
+            fileReader.readAsDataURL(obj.files[0]);
+        }
+    </script>
 </head>
 
 <body background="siteimages/b094.jpg">
@@ -81,13 +91,26 @@
                                 </ul>
                             </nav>
                         </div>
-
+                        <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
                         <h1>あなたのプロフィール画像</h1>
-                        会いたいと思わせるプロフィール画像にしましょう！<br>
+                        <br><br>
                         <!--form part-->
-                        <form method="POST" action="./image.php" enctype=multipart/form-data> <h2>自分の写真</h2>
-                            <input type="file" name="myImage" accept="image/*">
-                            <input type="submit" value="完了">
+                        <form method="POST" action=<?php print './image.php' . '?id=' . $_SESSION['id']; ?> enctype=multipart/form-data> <table>
+                            <th colspan="2">自分の写真</th>
+                            <div class="poscenter">
+                                <tr>
+                                    <td colspan="2"><input type="file" name="myImage" accept='image/*' onchange="previewImage(this);">
+                                        <p>
+                                            Preview:<br>
+                                            <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:200px;">
+                                        </p>
+
+                                    </td>
+                                </tr>
+                            </div>
+                            </table>
+                            <div class="button"><input type="submit" value="完了">
+                            </div>
                         </form>
                     </div>
                 </div>
