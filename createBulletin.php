@@ -56,7 +56,7 @@ if (!empty($_POST["title"])) {
         <!--左サイドバー-->
         <ul class="sideBar">
             <li><a href="index.php">ホーム</a></li>
-            <li><a href="serach.php">プロフ検索</a></li>
+            <li><a href="search.php">プロフ検索</a></li>
             <li><a href="chatInfo.php">メッセージ</a></li>
             <li><a href="profile.php">プロフィール</a></li>
             <li><a href="loginInfo.php">登録情報</a></li>
