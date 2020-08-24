@@ -24,7 +24,7 @@ if (!empty($_POST["title"])) {
         $content = fgetcsv($fp);
         $count++;
     }
-    $line = $count . "," . $mine . "," . $time . "," . $title . "," . 1 . "," . "<p>1: <strong>名前 : " . $nickname . "</strong><br>投稿日時 : <time>" . $time . "</time><br>" . $nickname . "さんがスレッドを建てました。</p><hr color='#0bd'>" . "\n";
+    $line = $count . "," . $mine . "," . $time . "," . $title . "," . 1 . "," . "<div class='left-margin'><p>1: <strong>名前 : " . $nickname . "</strong><br>投稿日時 : <time>" . $time . "</time><br>" . $nickname . "さんがスレッドを建てました。</p></div><hr color='#0bd'>" . "\n";
     //ファイルへ書き込み
     fputs($fp, $line);
     //ロック解除
@@ -67,7 +67,7 @@ if (!empty($_POST["title"])) {
             <li><a href="confirmMyLove.php">タイプした相手</a></li>
             <li><a href="info.php">お知らせ</a></li>
             <li><a href="news.php">最新情報</a></li>
-            <li><a href="constant.php">お問い合わせ</a></li>
+            <li><a href="contact.php">お問い合わせ</a></li>
         </ul>
     </div>
     <div class="wrapper">
@@ -119,7 +119,7 @@ if (!empty($_POST["title"])) {
                         </div>
                         <?php
                         print '<p><a href="./bulletinInfo.php" class="btn-flat-simpleBack"><i class="fa fa-chevron-left"></i>戻る</a>';
-                        print '<a href="./bulletin.php?index=' . $count . '" target="_self" class="btn-flat-simple">' . $title . 'のスレッドに行く</a></p><br>';
+                        print '<a href="./bulletin.php?index=' . $count . '" target="_self" class="btn-flat-simple">スレッドに行く</a></p><br>';
                         ?>
                         </br>
                         <h1>スレッドを立ち上げました。</h1>

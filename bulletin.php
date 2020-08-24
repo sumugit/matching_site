@@ -34,13 +34,13 @@
             <li><a href="confirmMyLove.php">タイプした相手</a></li>
             <li><a href="info.php">お知らせ</a></li>
             <li><a href="news.php">最新情報</a></li>
-            <li><a href="constant.php">お問い合わせ</a></li>
+            <li><a href="contact.php">お問い合わせ</a></li>
         </ul>
     </div>
     <div class="wrapper">
         <div class="right-column">
-            <?php                        
-            if(empty($_GET['index'])){
+            <?php
+            if (empty($_GET['index'])) {
                 header("Location: beyondExpectations.php");
                 exit();
             }
@@ -88,7 +88,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
+                        <p><a href="bulletinInfo.php" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
                         </br>
                         <?php
                         //URLパラメータからindex取得
@@ -117,7 +117,8 @@
                             exit();
                         }
                         ?>
-                        <h1><?php echo $content[3] ?></h1><br>
+                        <h1 class="left-margin"><?php echo $content[3] ?></h1><br>
+                        <hr class="line-dash">
                         <!--ここに投稿内容が表示される-->
                         <div id="result"></div>
                         <p id="pad">

@@ -33,7 +33,7 @@
             <li><a href="confirmMyLove.php">タイプした相手</a></li>
             <li><a href="info.php">お知らせ</a></li>
             <li><a href="news.php">最新情報</a></li>
-            <li><a href="constant.php">お問い合わせ</a></li>
+            <li><a href="contact.php">お問い合わせ</a></li>
         </ul>
     </div>
     <div class="wrapper">
