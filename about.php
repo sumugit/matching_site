@@ -37,6 +37,22 @@
     </div>
     <div class="wrapper">
         <div class="right-column">
+            <?php
+            //ログイン状態
+            session_start();
+            session_regenerate_id(true);
+            //変数がセットされているか
+            if (isset($_SESSION['login']) == false) {
+                print '<p id="login">アプリに';
+                print '<b><a href="login.php">ログイン</a></b>';
+                print '<br><p>';
+            } else {
+                print '<p id ="login">';
+                print $_SESSION['nickname'] . '様-';
+                print '<a href="logout.php"><b>ログアウト</b></a>';
+                print '<br><p>';
+            }
+            ?>
             <header>
                 <div class="top-header">
                     <nav>
@@ -89,10 +105,10 @@
                         <div class="box30">
                             <div class="box-title">プロフィール作成のポイント！</div>
                             <p>・好みのタイプ・自分のタイプを設定して、すれ違いをなくそう！
-                            <br>・プロフィール画像を活用しよう
-                            <br>・マイナスイメージではなく、自信をもってプラスイメージをだそう！
-                            <br>・自己紹介には、趣味や今はまっている物事、好きなものなど、共通の話題が持てるような内容でアピールしてみよう！
-                            <br>・何を自己紹介に書き込んでいいか悩んでるあなたには、簡単な挨拶からはじめてみよう。</p>
+                                <br>・プロフィール画像を活用しよう
+                                <br>・マイナスイメージではなく、自信をもってプラスイメージをだそう！
+                                <br>・自己紹介には、趣味や今はまっている物事、好きなものなど、共通の話題が持てるような内容でアピールしてみよう！
+                                <br>・何を自己紹介に書き込んでいいか悩んでるあなたには、簡単な挨拶からはじめてみよう。</p>
                         </div>
                         <br>
                     </div>

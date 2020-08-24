@@ -37,6 +37,22 @@
     </div>
     <div class="wrapper">
         <div class="right-column">
+            <?php
+            //ログイン状態
+            session_start();
+            session_regenerate_id(true);
+            //変数がセットされているか
+            if (isset($_SESSION['login']) == false) {
+                print '<p id="login">アプリに';
+                print '<b><a href="login.php">ログイン</a></b>';
+                print '<br><p>';
+            } else {
+                print '<p id ="login">';
+                print $_SESSION['nickname'] . '様-';
+                print '<a href="logout.php"><b>ログアウト</b></a>';
+                print '<br><p>';
+            }
+            ?>
             <header>
                 <div class="top-header">
                     <nav>
