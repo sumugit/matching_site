@@ -202,7 +202,12 @@ z-index: 20;
 
 .main-nav a {
     color: #FFFFFB;
+    font-weight: bold;
     text-transform: uppercase;
+}
+
+.main-nav a:hover{
+border-bottom: solid 2px #FFFFFB;
 }
 
 .btn4{
