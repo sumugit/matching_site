@@ -93,6 +93,8 @@
                         //画像ファイルの情報
                         $tempfile = $_FILES['myImage']['tmp_name'];
                         $filename = './image/' . $_FILES['myImage']['name'];
+                        //Windowsサーバーに保存する時は文字コード変更しないと文字化けする
+                        //$filename = mb_convert_encoding($filename, "cp932", "utf8");
 
                         //画像ファイルが本当にアップロードされたか
                         if (is_uploaded_file($tempfile)) {

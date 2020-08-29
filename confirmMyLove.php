@@ -13,6 +13,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/linestyle.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
+    <link href="css/posCenter.css" rel="stylesheet">
     <title>タイプ確認</title>
 </head>
 
@@ -120,13 +121,14 @@
                                                 }
                                             } else {
                                                 echo "ファイルがありません。";
+                                                exit();
                                             }
                                         }
                                     }
                                     flock($fp1, LOCK_UN);
                                     fclose($fp1);
                                     if ($flag == false) {
-                                        print "まだ誰もあなたをタイプしていません。<br><br>";
+                                        print "<div class='text-center'>まだ誰もあなたをタイプしていません。</div><br><br>";
                                     }
                                 } else {
                                     header("Location: fileError.php");
