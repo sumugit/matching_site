@@ -5,6 +5,7 @@ $mine = filter_input(INPUT_POST, 'mine');
 $message = filter_input(INPUT_POST, 'message');
 $mode = filter_input(INPUT_POST, 'mode');
 //投稿時間はここで取得する
+date_default_timezone_set('Asia/tokyo');
 date_default_timezone_get('Asia/Tokyo');
 $time = date("Y/m/j H:i:s");
 if ($mode == "0") {

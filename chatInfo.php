@@ -13,6 +13,7 @@
     <link href="css/linestyle.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/bulletinButton.css" rel="stylesheet">
+    <link href="css/posCenter.css" rel="stylesheet">
     <link href="css/table.css" rel="stylesheet">
     <title>メッセージ履歴</title>
 </head>
@@ -128,7 +129,7 @@
                                     flock($fp1, LOCK_UN);
                                     fclose($fp1);
                                     if ($flag == false) {
-                                        print "メッセージの履歴がありません。<br>";
+                                        print "<div class='text-center'>メッセージの履歴がありません。</div><br>";
                                     }
                                 } else {
                                     header("Location: fileError.php");

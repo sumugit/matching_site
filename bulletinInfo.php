@@ -139,7 +139,7 @@
                                     flock($fp1, LOCK_UN);
                                     fclose($fp1);
                                     if ($flag == false) {
-                                        print "誰も掲示板を投稿していません。<br>";
+                                        print "<div class='text-center'>誰も掲示板を投稿していません。</div><br>";
                                     }
                                 } else {
                                     header("Location: fileError.php");
