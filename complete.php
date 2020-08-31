@@ -84,6 +84,8 @@
                             </nav>
                         </div>
                         <?php
+                        //ニックネーム一致のフラグ
+                        $flag = false;
                         //配列の要素が定義されているか
                         if (!empty($_POST["nickname"]) && !empty($_POST["old"])) {
                             //入力データの書き込み
@@ -116,6 +118,35 @@
                                 $meet = htmlspecialchars($_POST["meet"]);
                                 $cost = htmlspecialchars($_POST["cost"]);
 
+                                if (is_file("./csv/users.csv")) { //登録ファイルが存在するか
+                                    if (is_readable("./csv/users.csv")) { //登録ファイルを読み込めるか
+                                        $fp = fopen("./csv/users.csv", "r");
+                                        flock($fp, LOCK_SH);
+                                        //users.csvの中身を一行ずつカウント
+                                        while (!feof($fp)) {
+                                            $content = fgetcsv($fp);
+                                            //既に同じユーザー名が存在する場合
+                                            if (strcmp($nickname, $content[1]) == 0) {
+                                                $flag = true;
+                                                break;
+                                            }
+                                        }
+                                        //登録ファイルを閉じる
+                                        flock($fp, LOCK_UN);
+                                        fclose($fp);
+                                    } else {
+                                        header("Location: fileError.php");
+                                        exit();
+                                    }
+                                } else {
+                                    header("Location: fileError.php");
+                                    exit();
+                                }
+                                //同一のユーザー名が既に存在する
+                                if($flag == true) {
+                                    print '<p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p><br>';
+                                    print '<div class="text-center">このユーザー名は既に存在します。別のユーザー名に変更してください。</div><br>';    
+                                } else {
                                 //プロフファイルへ書き込み
                                 //r/w/a: 読み/書き/上書き
                                 $fp = fopen("./csv/profile.csv", "a+");
@@ -175,10 +206,11 @@
                                 flock($fp, LOCK_UN);
                                 fclose($fp);
                             }
+                            }
                             else print 'ニックネームを記入してください。';
                         }
                         ?>
-                        <?php if (!empty($_POST["nickname"]) && strlen($_POST["nickname"]) != 0 && !empty($nickname) && !empty($_POST["old"])) : ?>
+                        <?php if ($flag == false && !empty($_POST["nickname"]) && strlen($_POST["nickname"]) != 0 && !empty($nickname) && !empty($_POST["old"])) : ?>
                             <?php print '<p><a href="./profEdit.php" class="btn-flat-simpleBack"><i class="fa fa-chevron-left"></i>編集に戻る</a>';
                                 print '<a href="./profile.php" class="btn-flat-simple">プロフィール確認</a></p>'; ?>
                             <br>
@@ -207,7 +239,7 @@
                                     初回デート費用: <?php echo $cost ?><br>
                                 </p>
                             </div>
-                        <?php else : ?>
+                        <?php elseif ($flag == false) : ?>
                             <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
                             </br>
                             <div class="text-center">

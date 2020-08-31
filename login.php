@@ -84,7 +84,7 @@
                             <h1>登録済みの方</h1>
                             <form method="POST" action="./login_check.php" enctype=multipart/form-data> <br>
                                 <div class="form-item">
-                                    <input type="email" name="email" placeholder="メールアドレス" required><br>
+                                    <input type="text" name="userName" placeholder="ユーザー名" required><br>
                                 </div>
                                 <div class="form-item">
                                     <input type="password" name="pass" pattern="[0-9a-zA-Z]+$" placeholder="パスワード" required><br>

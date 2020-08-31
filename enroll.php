@@ -86,6 +86,8 @@
                         <p><a href="javascript:history.back();" class="btn-flat-BackAll"><i class="fa fa-chevron-left"></i>戻る</a></p>
                         <br>
                         <?php
+                        //ユーザー名一致のフラグ
+                        $flag = false;
                         //配列の要素が定義されているか
                         if (!empty($_POST["name"]) && !empty($_POST["sex"]) && !empty($_POST["nickname"]) && !empty($_POST["email"]) && !empty($_POST["pass1"]) && !empty($_POST["pass2"])) {
                             //入力データの書き込み
@@ -111,6 +113,11 @@
                                         //users.csvの中身を一行ずつカウント
                                         while (!feof($fp)) {
                                             $content = fgetcsv($fp);
+                                            //既に同じユーザー名が存在する場合
+                                            if (strcmp($nickname, $content[1]) == 0) {
+                                                $flag = true;
+                                                break;
+                                            }
                                             $count++;
                                         }
                                         //登録ファイルを閉じる
@@ -127,7 +134,12 @@
                                 //パスワードが一致しないときの処理
                                 if ($pass1 != $pass2) {
                                     print '<div class="text-center">パスワードが一致しません。</div><br>';
-                                } else {
+                                }
+                                //アカウント名が一致したときの処理
+                                if($flag == true) {
+                                    print '<div class="text-center">このユーザー名は既に存在します。別のユーザー名に変更してください。</div><br>';    
+                                }
+                                else {
                                     //登録確認画面へ
                                     $pass = md5($pass1);
                                     echo '<div class="box30">';

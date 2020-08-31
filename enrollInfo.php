@@ -89,7 +89,7 @@
                                 <input type="radio" name="sex" value="男性" required>男性
                                 <input type="radio" name="sex" value="女性">女性<br>
                                 <div class="form-item">
-                                    <input type="text" name="nickname" placeholder="ニックネーム" required><br>
+                                    <input type="text" name="nickname" placeholder="ユーザー名" required><br>
                                 </div>
                                 <div class="form-item">
                                     <input type="email" name="email" placeholder="メールアドレス" required><br>
