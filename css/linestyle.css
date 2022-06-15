@@ -3,8 +3,13 @@
 .container {
 }
 .item {
-    background: #0bd;
-    color: #fff;
+    height: 150px;
+    background: #ffffff;
+    color: #432;
     margin: 10px;
     padding: 10px;
+}
+
+.item:hover {
+    background-color: #F6F7F8;
 }

@@ -1,110 +1,43 @@
-@charset "utf-8";
-#container{
-	margin: 0 auto;
-	width: 600px;
+.submit {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  display       : inline-block;
+  border-radius : 10%;          /* 角丸       */
+  font-size     : 11pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 7px 12px;   /* 余白       */
+  background    : #0bd;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #0bd;    /* 枠の指定 */
 }
-#inputField{
-	width: 100%;
-	margin: 10px;
-}
-#talkField{
-	width: 100%;
-	height: 500px;
-	padding: 10px;
-	background-color: #7897C5;
-	border: 1px solid grey;
-	border-radius: 10px;
-	overflow: scroll;
-	word-break: break-all;
-}
-#message{
-	width: 40%;
-}
-.user{
-	clear: both;
+.submit:hover {
+  color         : #0bd;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
 }
 
-/*******************************
-* 左からの吹き出し
-********************************/
-.left_balloon {
-    position: relative;
-    background: #ffffff;
-    /*border: 1px solid #777;*/
-    margin: 10px;
-    padding: 10px;
-    border-radius: 15px;
-    margin-right: 20%;
-    clear: both;
-    max-width: 500px;
-    float: left;
+
+textarea {
+  width: 600px;
+  margin: 1em 0; /* 周囲の余白 */
+  padding: 0.5em; /* 枠線内の余白 */
+  font-size: 1em; /* フォントサイズ */
+  border: solid 2px #0bd; /* 枠線のスタイル */
+  border-radius: 4px; /* 角丸に */
+  resize: none; /* リサイズ不可に */
 }
-.left_balloon:after,
-.left_balloon:before {
-    left: 7.5px;
-    top: -5px;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
+/* フォーカス時のスタイル */
+textarea:focus {
+  border-color: #0bd;
+  outline: 0;
 }
-.left_balloon:after {
-    border-color: rgba(255, 255, 255, 0);
-    border-bottom-color: #ffffff;
-    border-width: 7px;
-    margin-top: -7px;
-}
-/*.left_balloon:before {
-    border-color: rgba(0, 0, 0, 0);
-    border-right-color: #000;
-    border-width: 8px;
-    margin-top: -8px;
-}*/
- 
-/*******************************
-* 右からの吹き出し
-********************************/
-.right_balloon {
-    position: relative;
-    background: #85e249;
-    border: 1px solid #777;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 15px;
-    margin-left: 20%;
-    clear: both;
-    max-width: 500px;
-    float: right;
-}
-.right_balloon:after,
-.right_balloon:before {
-    left: 100%;
-    top: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-}
-.right_balloon:after {
-    border-color: rgba(133, 226, 73, 0);
-    border-left-color: #85e249;
-    border-width: 7px;
-    margin-top: -7px;
-}
-.right_balloon:before {
-    border-color: rgba(119, 119, 119, 0);
-    border-left-color: #777;
-    border-width: 8px;
-    margin-top: -8px;
-}
- 
-/*******************************
-* 割り込みを解除
-********************************/
-.clear_balloon{
-  clear: both;
+
+h1 {
+  text-align: center;
+  margin-top: 5%;
+  padding: 0.3em;
+  background: aliceblue;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.23);
 }

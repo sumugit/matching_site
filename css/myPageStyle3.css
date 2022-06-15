@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+#pad {
+    margin-top: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    grid-template-rows: 200px 200px 200px;
+}
+.item {
+    height: 200px;
+    text-align: center;
+    background: #fff;
+    color: #0bd;
+    padding: 10px;
+}
+
+.item:hover {
+    background-color: #F6F7F8;
+}

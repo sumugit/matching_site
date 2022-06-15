@@ -24,7 +24,7 @@ if (!empty($_POST["title"])) {
         $content = fgetcsv($fp);
         $count++;
     }
-    $line = $count. "," . $mine . "," . $time . "," . $title . "," . 1 . "," . "<p>1: <strong>名前 : " . $nickname . "</strong><br>投稿日時 : <time>" . $time . "</time><br>" . $nickname . "さんがスレッドを建てました。</p><hr>" . "\n";
+    $line = $count . "," . $mine . "," . $time . "," . $title . "," . 1 . "," . "<p>1: <strong>名前 : " . $nickname . "</strong><br>投稿日時 : <time>" . $time . "</time><br>" . $nickname . "さんがスレッドを建てました。</p><hr color='#0bd'>" . "\n";
     //ファイルへ書き込み
     fputs($fp, $line);
     //ロック解除
@@ -37,26 +37,52 @@ if (!empty($_POST["title"])) {
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+    <link href="css/linestyle.css" rel="stylesheet">
+    <link href="css/style3.css" rel="stylesheet">
+    <link href="css/bulletinButton.css" rel="stylesheet">
     <title>スレッド作成</title>
 </head>
 
 <body>
-    <header>
-        <h1>スレッドを立ち上げました。</h1>
-    </header>
-    <?php
-    if (!empty($title) && !empty($time)) {
-        //ログファイルの中身を出力
-        echo "<p><b>タイトル:" . $title . "</b><br>作成日時:<time>" . $time . "</time></p>";
-    }
-    ?>
-    <p>
-        <?php echo '<a href="./bulletin.php?index=' . $count . '" target="_self">' . $title . 'のスレッドに行く</a><br>'; ?>
-        <a href="./bulletinInfo.php" target="_self">掲示板に戻る</a><br>
-    </p>
-    <footer>
-        <p><small>&copy; マッチングナビ 2020 仮</small></p>
-    </footer>
+    <div id="contenar">
+        <div id="field">
+            <div id="home" class="top-image-area">
+                <a href="index.php"><img class="logo" src="siteimages/header2.png" alt="マッチングナビロゴ"></a>
+                <header class="page-header wrapper">
+                    <nav>
+                        <ul class="main-nav">
+                            <li><a href="index.php" class="btn4">ホーム</a></li>
+                            <li><a href="search.php" class="btn4">プロフ検索</a></li>
+                            <li><a href="bulletinInfo.php" class="btn4">掲示板</a></li>
+                            <li><a href="chatInfo.php" class="btn4">メッセージ</a></li>
+                            <li><a href="myPage.php" class="btn4">マイページ</a></li>
+                            <li><a href="contact.html" class="btn4">お問い合わせ</a></li>
+                        </ul>
+                    </nav>
+                </header>
+                <h1>スレッドを立ち上げました。</h1>
+                <?php
+                if (!empty($title) && !empty($time)) {
+                    //ログファイルの中身を出力
+                    echo "<p><b>タイトル:" . $title . "</b><br>作成日時:<time>" . $time . "</time></p>";
+                }
+                ?>
+                <p>
+                    <?php echo '<a href="./bulletin.php?index=' . $count . '" target="_self">' . $title . 'のスレッドに行く</a><br>'; ?>
+                    <a href="./bulletinInfo.php" target="_self">掲示板に戻る</a><br>
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
-
+<div class="footer-wrapper">
+    <footer>
+        <p><small>&copy; マッチングナビ 2020</small></p>
+    </footer>
+</div>
 </html>

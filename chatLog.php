@@ -101,7 +101,7 @@ if ($mode == "0") {
             while (!feof($fp)) {
                 $content = fgetcsv($fp);
                 //閲覧しているユーザーの情報を取得
-                if ($content[0] == $mine) {
+                if ($content[0] == $mine && $content[1] == $opponent) {
                     break;
                 }
             }
@@ -130,7 +130,7 @@ if ($mode == "0") {
             while (!feof($fp)) {
                 $content = fgetcsv($fp);
                 //閲覧しているユーザーの情報を取得
-                if ($content[0] == $mine) {
+                if ($content[0] == $mine && $content[1] == $opponent) {
                     break;
                 }
             }
