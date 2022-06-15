@@ -1,15 +1,12 @@
-/*まずはお決まりのボックスサイズ算出をborer-boxに */
+@charset "utf-8";
+/*ユーザープロフィールでの各ボタン
+--------------------------------*/
+
 *,
 *:before,
 *:after {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
-}
-
-html {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 62.5%;/*rem算出をしやすくするために*/
 }
 
 .btn,
@@ -38,17 +35,18 @@ button.btn {
 
 /*いいねボタン*/
 .btn-pushGood {
-  margin-left: 220px;
+  margin-left: 260px;
   display: inline-block;
-  max-width: 180px;
+  width: 80px;
+  height: 80px;
   text-align: left;
   background-color: #e8e8e8;
   font-size: 16px;
   color: #666666;
   text-decoration: none;
   font-weight: bold;
-  padding: 10px 24px;
-  border-radius: 4px;
+  padding: 10px 10px;
+  border-radius: 100%;
   border-bottom: 4px solid #b8b8b8;
 }
 
@@ -60,15 +58,16 @@ button.btn {
 /*タイプ！ボタン*/
 .btn-pushLove {
   display: inline-block;
-  max-width: 180px;
+  width: 80px;
+  height: 80px;
   text-align: left;
   background-color: #e8e8e8;
   font-size: 16px;
   color: #666666;
   text-decoration: none;
   font-weight: bold;
-  padding: 10px 24px;
-  border-radius: 4px;
+  padding: 10px 10px;
+  border-radius: 100%;
   border-bottom: 4px solid #b8b8b8;
 }
 
@@ -78,26 +77,26 @@ button.btn {
 }
 
 /*メッセージボタン*/
-a.btn--green {
-    font-size: 2rem;
+a.btn--blue {
+    font-size: 1.5rem;
     position: relative;
     padding: 1.5rem 3rem 1.5rem 2rem;
     border-radius: 100vh;
-    margin-left: 210px;
+    margin-left: 170px;
     color: #fff;
-    background-color: #0bd;
+    background-color: #00bfff;
 }
 
-a.btn--green:hover {
+a.btn--blue:hover {
   color: #fff;
-  background: #0bd;
+  background: #00bfff;
 }
 
-a.btn--green.btn--cubic {
+a.btn--blue.btn--cubic {
   border-bottom: 5px solid #627295;
 }
 
-a.btn--green.btn--cubic:hover {
+a.btn--blue.btn--cubic:hover {
   margin-top: 3px;
   border-bottom: 2px solid #627295;
 }

@@ -1,3 +1,7 @@
+@charset "utf-8";
+/*表作成
+-----------------------------*/
+
 .center{
   text-align: center;
   border: 1px dashed #999; /* わかりやすくボーターを付けておきます */
@@ -5,13 +9,13 @@
 
 table{
     width: 500px;
-  border-collapse: separate;
-  border-spacing: 0px 5px;
-  margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0px 5px;
+    margin: 0 auto;
 }
 
 th {
-  background:  #10a0e0;
+  background:  #00bfff;
   border: solid 1px #ccc;
   color: #fff;
   padding: 10px;
@@ -46,15 +50,100 @@ textarea:focus {
   text-align: center;
 }
 
+/*ボタン
+-----------------------------*/
+
+.btn-flat-BackAll {
+  display: table-cell;
+  width: 100%;
+  font-size: x-large;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #808080;
+  background: #d3d3d3;
+  transition: .4s;
+}
+
+.btn-flat-BackAll:hover {
+  background: #808080;
+  color: #d3d3d3;
+}
+
+.btn-flat-simpleBack {
+  display: table-cell;
+  width: 50%;
+  font-size: x-large;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #808080;
+  background: #d3d3d3;
+  transition: .4s;
+  border-right: solid #808080 1px;
+}
+
+.btn-flat-simpleBack:hover {
+  background: #808080;
+  color: #d3d3d3;
+}
+
+.btn-flat-simple {
+  display: table-cell;
+  width: 50%;
+  font-size: x-large;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #808080;
+  background: #d3d3d3;
+  transition: .4s;
+}
+
+.btn-flat-simple:hover {
+  background: #808080;
+  color: #d3d3d3;
+}
+
+.btn-flat {
+  display: table-cell;
+  width: 100%;
+  font-size: x-large;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #808080;
+  background: #d3d3d3;
+  transition: .4s;
+}
+
+.btn-flat:hover {
+  background: #808080;
+  color: #d3d3d3;
+}
+
 
 /*ボタン*/
 .btn,
 a.btn,
 .editButton.btn {
-  margin-left: 100px;
+  margin-left: 300px;
   font-weight: 700;
   line-height: 1.0;
-  position: relative;
+  width: 50%;
+  position: absolute;
   display: inline-block;
   padding: 1rem 4rem;
   cursor: pointer;
@@ -74,21 +163,21 @@ a.btn,
 
 /*その他と主な共通部分は省略*/
 
-a.btn--green {
+a.btn--blue {
   color: #fff;
-  background-color: #0bd;
+  background-color: #00bfff;
 }
 
-a.btn--green:hover {
+a.btn--blue:hover {
   color: #fff;
-  background: #0bd;
+  background: #00bfff;
 }
 
-a.btn--green.btn--cubic {
+a.btn--blue.btn--cubic {
   border-bottom: 5px solid #627295;
 }
 
-a.btn--green.btn--cubic:hover {
+a.btn--blue.btn--cubic:hover {
   margin-top: 3px;
   border-bottom: 2px solid #627295;
 }
@@ -167,7 +256,15 @@ a.btn-c i.fa {
 	border-radius: 4px;
 }
 .ef input[type='text']:focus {
-	border: 2px solid #56a9ff;
+	border: 2px solid #00bfff;
 	outline: none;
 }
 
+.chart {
+    position: relative;
+    left: 420px;
+  }
+
+.line {
+  white-space: pre-wrap;
+}

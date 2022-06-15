@@ -3,6 +3,7 @@ $testFile = "./csv/chatLog.csv";
 $mine = filter_input(INPUT_POST, 'mine');
 $opponent = filter_input(INPUT_POST, 'opponent');
 $nickname = filter_input(INPUT_POST, 'nickname');
+$myImage = filter_input(INPUT_POST, 'myImage');
 $message = filter_input(INPUT_POST, 'message');
 $mode = filter_input(INPUT_POST, 'mode');
 if ($mode == "0") {
@@ -30,12 +31,36 @@ if ($mode == "0") {
         exit();
     }
 
+    if (is_file("./csv/profile.csv")) { //登録ファイルが存在するか
+        if (is_readable("./csv/profile.csv")) { //登録ファイルを読み込めるか
+            $fp = fopen("./csv/profile.csv", "r");
+            flock($fp, LOCK_SH);
+            //idが相手のアカウントと一致するまで一行ずつ取り出す
+            while (!feof($fp)) {
+                $me = fgetcsv($fp);
+                //閲覧しているユーザーの情報を取得
+                if ($me[0] == $mine) {
+                    break;
+                }
+            }
+            //ファイルを閉じる
+            flock($fp, LOCK_UN);
+            fclose($fp);
+        } else {
+            echo "ファイルが開けません。";
+            exit();
+        }
+    } else {
+        echo "ファイルが開けません。";
+        exit();
+    }
+
     //自分から相手(メッセージは右側)
     $inputValueMine = "<div class='right'>" . $nickname . "</div><div class='right_balloon'>" . $message . "</div>";
     //csvなので,は、に変換
     $inputValueMine = preg_replace("/,/", "、", $inputValueMine);
     //相手から自分(メッセージは左側)
-    $inputValueOpponent = "<div class='left'>" . $nickname . "</div><div class='left_balloon'>" . $message . "</div>";
+    $inputValueOpponent = "<div class='left'>" . $nickname . "</div><div class='left_baloon_image'><img src=" . $me[1] ." class='userImage' width='70' height='70'></div><div class='left_balloon'>" . $message . "</div>";
     $inputValueOpponent = preg_replace("/,/", "、", $inputValueOpponent);
     //以前にメッセージをやり取りした履歴があるか
     $flag = false;
@@ -60,12 +85,12 @@ if ($mode == "0") {
         //もし以前にやり取りがあれば,新たなメッセージを追加する
         for ($i = 0; $i < count($array)-1; $i++) {
             //編集した情報を更新(ユニークなidが一致すればよい)
-            if ($array[$i][0] == $mine) {
+            if ($array[$i][0] == $mine && $array[$i][1] == $opponent) {
                 $flag = true;
                 //メッセージ追加(文字列の連結)(自分側)
                 $array[$i][2] = $array[$i][2] . $inputValueMine;
             }
-            else if ($array[$i][0] == $opponent) {
+            else if ($array[$i][0] == $opponent && $array[$i][1] == $mine) {
                 $flag = true;
                 //メッセージ追加(文字列の連結)(相手側)
                 $array[$i][2] = $array[$i][2] . $inputValueOpponent;

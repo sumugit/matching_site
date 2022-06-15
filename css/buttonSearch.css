@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*まずはお決まりのボックスサイズ算出をborer-boxに */
 *,
 *:before,
@@ -12,9 +13,9 @@
   font-size: 62.5%;/*rem算出をしやすくするために*/
 }
 
-.btn,
-a.btn,
-button.btn {
+.Btn,
+a.Btn,
+button.Btn {
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.5;
@@ -37,7 +38,7 @@ button.btn {
 }
 
 /*いいねボタン*/
-.btn-pushGood {
+.Btn-pushGood {
   margin-left: 220px;
   display: inline-block;
   max-width: 180px;
@@ -52,13 +53,13 @@ button.btn {
   border-bottom: 4px solid #b8b8b8;
 }
 
-.btn-pushGood:active {
+.Btn-pushGood:active {
     transform: translateY(4px);
     border-bottom: none;
 }
 
 /*タイプ！ボタン*/
-.btn-pushLove {
+.Btn-pushLove {
   display: inline-block;
   max-width: 180px;
   text-align: left;
@@ -72,12 +73,12 @@ button.btn {
   border-bottom: 4px solid #b8b8b8;
 }
 
-.btn-pushLove:active {
+.Btn-pushLove:active {
     transform: translateY(4px);
     border-bottom: none;
 }
 
-a.btn--green {
+a.Btn--blue {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-size: 120%;/*rem算出をしやすくするために*/
@@ -87,35 +88,35 @@ a.btn--green {
     border-radius: 100vh;
     margin-left: 220px;
     color: #fff;
-    background-color: #0bd;
+    background-color: #00bfff;
 }
 
-a.btn--green:hover {
+a.Btn--blue:hover {
   color: #fff;
-  background: #0bd;
+  background: #00bfff;
 }
 
-a.btn--green.btn--cubic {
+a.Btn--blue.Btn--cubic {
   border-bottom: 5px solid #627295;
 }
 
-a.btn--green.btn--cubic:hover {
+a.Btn--blue.Btn--cubic:hover {
   margin-top: 3px;
   border-bottom: 2px solid #627295;
 }
 
-a.btn-c {
+a.Btn-c {
   font-size: 2rem;
   position: relative;
   padding: 1.5rem 3rem 1.5rem 2rem;
   border-radius: 100vh;
 }
 
-a.btn-c i.fa {
+a.Btn-c i.fa {
   margin-right: 1rem;
 }
 
-a.btn-c:before {
+a.Btn-c:before {
   font-family: 'Font Awesome 5 Free';
   font-size: 1.6rem;
   line-height: 1;

@@ -1,0 +1,121 @@
+@charset "utf-8";
+/*共通要素
+--------------------------------*/
+
+h1 {
+  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+  color: #00bfff;/*文字色*/
+  background: #f4f4f4;/*背景色*/
+  border-left: solid 10px #00bfff;/*左線*/
+  border-bottom: solid 3px #d7d7d7;/*下線*/
+}
+
+.box30 {
+    margin-left: 10%;
+    margin-right: 10%;
+    background: #f1f1f1;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.box30 .box-title {
+    font-size: 1.2em;
+    background: #00bfff;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    border-radius: 10px 10px 0px 0px;
+}
+.box30 p {
+    padding: 15px 20px;
+    margin: 0;
+    font-size: 20px;
+}
+
+/*ボタン*/
+.btn-square {
+  margin-top: 40px;
+  margin-left: 33%;
+  font-weight: bold;
+  font-size: large;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #00bfff;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+.btn-square:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.pricecards{
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+        }
+.pricecard{
+  flex: 0 0 33%;
+  text-align: center;
+  border: 1px solid #eee;
+  padding-bottom: 1rem;
+  box-sizing: border-box;
+  margin:0 auto 3em;
+        }
+        .pricecard h3{
+            background: #a2bc10;
+            color: #fff;
+            padding: 10px;
+            margin: 0;
+        }
+        .pricecard h4{
+            font-size: 300%;
+            margin: 0 auto;
+            padding: 1rem 0 0;
+        }
+        .pricecard.premium h4 {
+            padding: 20px;
+        }
+        .pricecard p{
+            margin: 0;
+            padding: 1rem;
+            text-align: left;
+        }
+        .pricecard a{
+            padding: 10px 40px;
+            background: #fb5859;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            display: inline-block;
+        }
+@media screen and (max-width: 600px){
+.profile_card, .pricecards, .profile_cards {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+}
+  .pricecard, .card_photo {
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+}
+  .pricecard.premium {
+    order: 1;
+    -webkit-order: 1;
+}
+}

@@ -5,6 +5,7 @@ $mine = filter_input(INPUT_POST, 'mine');
 $message = filter_input(INPUT_POST, 'message');
 $mode = filter_input(INPUT_POST, 'mode');
 //投稿時間はここで取得する
+date_default_timezone_set('Asia/tokyo');
 date_default_timezone_get('Asia/Tokyo');
 $time = date("Y/m/j H:i:s");
 if ($mode == "0") {
@@ -57,7 +58,7 @@ if ($mode == "0") {
                 //投稿の連番
                 $array[$i][4] = $array[$i][4] + 1;
                 //投稿内容
-                $inputValue = "<p>" . $array[$i][4] . ": <strong>名前 : " . $content[3] . "</strong><br>投稿日時 : <time>" . $time . "</time><br>" . $message . "</p><hr>";
+                $inputValue = "<div class='left-margin'><p>" . $array[$i][4] . ": <strong>名前 : " . $content[3] . "</strong><br><img src = '$content[1]' align='left' width='64' height='64' class='userImage' alt=''>投稿日時 : <time>" . $time . "</time><br>" . $message . "<br><br></p></div><hr color='#00bfff'>";
                 //正規表現で改行コードを置換(複数行入力できるようにする)
                 $inputValue = preg_replace("/\r|\n|\r\n/", "<br>", $inputValue);
                 //csvなので,は、に変換
