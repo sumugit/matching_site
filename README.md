@@ -4,7 +4,7 @@ PHPでマッチングサイトを作成したので紹介します.<br>
 
 ## 作成サイト : マッチングナビ
 <div align="center">
-<img src="./readme_images/image1.png" width="800" alt="ホームページ">
+<img src="./readme_images/image1.PNG" width="800" alt="ホームページ">
 <img src="./readme_images/image2.png" width="800" alt="ホームページ">
 <figcaption>ホーム画面</figcaption>
 </div>
@@ -28,7 +28,7 @@ PHPでマッチングサイトを作成したので紹介します.<br>
 <div align="center">
 <img src="./readme_images/image3.png" width="800" alt="ホームページ">
 <figcaption>女性ユーザー一覧表示</figcaption>
-<img src="./readme_images/image4.png" width="800" alt="ホームページ">
+<img src="./readme_images/image4.PNG" width="800" alt="ホームページ">
 <figcaption>マイページ</figcaption>
 </div>
 
