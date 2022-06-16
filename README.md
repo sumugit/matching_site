@@ -27,7 +27,7 @@ PHPでマッチングサイトを作成したので紹介します.<br>
 タイル型レイアウトを意識し, ユーザーの閲覧やメニューの表示を整理した.
 <div align="center">
 <img src="./readme_images/image3.png" width="800" alt="ユーザー一覧画面">
-<figcaption>女性ユーザー一覧表示</figcaption>
+<figcaption><br>女性ユーザー一覧表示</figcaption>
 <img src="./readme_images/image4.PNG" width="800" alt="マイページ">
 <figcaption>マイページ</figcaption>
 </div>
