@@ -4,8 +4,8 @@ PHPでマッチングサイトを作成したので紹介します.<br>
 
 ## 作成サイト : マッチングナビ
 <div align="center">
-<img src="./readme_images/image1.PNG" width="800" alt="ホームページ">
-<img src="./readme_images/image2.png" width="800" alt="ホームページ">
+<img src="./readme_images/image1.PNG" width="800" alt="ホームページ上">
+<img src="./readme_images/image2.png" width="800" alt="ホームページ下">
 <figcaption>ホーム画面</figcaption>
 </div>
 
@@ -26,16 +26,16 @@ PHPでマッチングサイトを作成したので紹介します.<br>
 ## レイアウト・デザイン
 タイル型レイアウトを意識し, ユーザーの閲覧やメニューの表示を整理した.
 <div align="center">
-<img src="./readme_images/image3.png" width="800" alt="ホームページ">
+<img src="./readme_images/image3.png" width="800" alt="ユーザー一覧画面">
 <figcaption>女性ユーザー一覧表示</figcaption>
-<img src="./readme_images/image4.PNG" width="800" alt="ホームページ">
+<img src="./readme_images/image4.PNG" width="800" alt="マイページ">
 <figcaption>マイページ</figcaption>
 </div>
 
 ## LINEを意識した個人チャット
 チャットも現代的なデザインに倣った. LINE では左側に相手のコメントとアイコン画像, 右側に自分のコメントが配置されるデザインであり, 本作品でもそれに近いデザインを作成した.
 <div align="center">
-<img src="./readme_images/image7.png" width="800" alt="ホームページ">
+<img src="./readme_images/image7.PNG" width="800" alt="チャット画面">
 <figcaption>チャットの様子</figcaption>
 </div>
 
